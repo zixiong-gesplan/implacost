@@ -1,0 +1,10 @@
+<div class="flex border-l-8 border-blue-800 pl-4 flex-col min-h-1/3 items-center">
+    <div class="w-full">
+        <h1 class="font-semibold text-blue-800 text-lg">
+            Actividad {{ $id }}
+        </h1>
+        <p>
+            {{ $description }}
+        </p>
+    </div>
+</div>
