@@ -1,45 +1,85 @@
-# Partimos de la imagen php en su versión 7.4
-FROM php:8.0
+# deploy/Dockerfile
 
-# Copiamos los archivos package.json composer.json y composer-lock.json a /var/www/
-COPY composer*.json /var/www/
+# stage 1: build stage
+FROM php:8.3-fpm-alpine as build
 
-# Nos movemos a /var/www/
-WORKDIR /var/www/
-
-# Instalamos las dependencias necesarias
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    libzip-dev \
-    libpng-dev \
-    libjpeg62-turbo-dev \
-    libfreetype6-dev \
-    libonig-dev \
-    locales \
+# installing system dependencies and php extensions
+RUN apk add --no-cache \
     zip \
-    jpegoptim optipng pngquant gifsicle \
-    vim \
-    git \
-    curl
+    libzip-dev \
+    freetype \
+    libjpeg-turbo \
+    libpng \
+    freetype-dev \
+    libjpeg-turbo-dev \
+    libpng-dev \
+    nodejs \
+    npm \
+    && docker-php-ext-configure zip \
+    && docker-php-ext-install zip pdo pdo_mysql \
+    && docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ \
+    && docker-php-ext-install -j$(nproc) gd \
+    && docker-php-ext-enable gd
 
-# Instalamos extensiones de PHP
-RUN docker-php-ext-install pdo_mysql zip exif pcntl
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg
-RUN docker-php-ext-install gd
+# install composer
+COPY --from=composer:2.7.6 /usr/bin/composer /usr/bin/composer
 
-# Instalamos composer
-RUN curl -sS https://getcomposer.org/installer
-RUN php -- --install-dir=/usr/local/bin --filename=composer
+WORKDIR /var/www/html
 
-# Instalamos dependendencias de composer
-RUN composer install
+# copy necessary files and change permissions
+COPY . .
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 775 /var/www/html/storage \
+    && chmod -R 775 /var/www/html/bootstrap/cache
 
-# Copiamos todos los archivos de la carpeta actual de nuestra 
-# computadora (los archivos de laravel) a /var/www/
-COPY . /var/www/
+# install php and node.js dependencies
+RUN composer install --no-dev --prefer-dist \
+    && npm install \
+    && npm run build
 
-# Exponemos el puerto 9000 a la network
-EXPOSE 9000
+RUN chown -R www-data:www-data /var/www/html/vendor \
+    && chmod -R 775 /var/www/html/vendor
 
-# Corremos el comando php-fpm para ejecutar PHP
-CMD [""php-fpm""]
+# stage 2: production stage
+FROM php:8.3-fpm-alpine
+
+# install nginx
+RUN apk add --no-cache \
+    zip \
+    libzip-dev \
+    freetype \
+    libjpeg-turbo \
+    libpng \
+    freetype-dev \
+    libjpeg-turbo-dev \
+    libpng-dev \
+    oniguruma-dev \
+    gettext-dev \
+    freetype-dev \
+    nginx \
+    && docker-php-ext-configure zip \
+    && docker-php-ext-install zip pdo pdo_mysql \
+    && docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ \
+    && docker-php-ext-install -j$(nproc) gd \
+    && docker-php-ext-enable gd \
+    && docker-php-ext-install bcmath \
+    && docker-php-ext-enable bcmath \
+    && docker-php-ext-install exif \
+    && docker-php-ext-enable exif \
+    && docker-php-ext-install gettext \
+    && docker-php-ext-enable gettext \
+    && docker-php-ext-install opcache \
+    && docker-php-ext-enable opcache \
+    && rm -rf /var/cache/apk/*
+
+# copy files from the build stage
+COPY --from=build /var/www/html /var/www/html
+COPY ./deploy/nginx.conf /etc/nginx/http.d/default.conf
+COPY ./deploy/php.ini "$PHP_INI_DIR/conf.d/app.ini"
+
+WORKDIR /var/www/html
+
+# add all folders where files are being stored that require persistence. if needed, otherwise remove this line.
+VOLUME ["/var/www/html/storage/app"]
+
+CMD ["sh", "-c", "nginx && php-fpm"]
