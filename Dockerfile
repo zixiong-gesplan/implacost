@@ -1,85 +1,35 @@
-# deploy/Dockerfile
+# Usa la imagen oficial de PHP con FPM
+FROM php:8.1-fpm
 
-# stage 1: build stage
-FROM php:8.3-fpm-alpine as build
-
-# installing system dependencies and php extensions
-RUN apk add --no-cache \
-    zip \
-    libzip-dev \
-    freetype \
-    libjpeg-turbo \
-    libpng \
-    freetype-dev \
-    libjpeg-turbo-dev \
+# Instala extensiones necesarias para Laravel
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
     libpng-dev \
-    nodejs \
-    npm \
-    && docker-php-ext-configure zip \
-    && docker-php-ext-install zip pdo pdo_mysql \
-    && docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ \
-    && docker-php-ext-install -j$(nproc) gd \
-    && docker-php-ext-enable gd
+    libonig-dev \
+    libxml2-dev \
+    zip \
+    unzip \
+    && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 
-# install composer
-COPY --from=composer:2.7.6 /usr/bin/composer /usr/bin/composer
+# Instala Composer
+COPY --from=composer:2.6 /usr/bin/composer /usr/bin/composer
 
-WORKDIR /var/www/html
+# Configura el directorio de trabajo
+WORKDIR /var/www
 
-# copy necessary files and change permissions
+# Copia los archivos del proyecto Laravel al contenedor
 COPY . .
-RUN chown -R www-data:www-data /var/www/html \
-    && chmod -R 775 /var/www/html/storage \
-    && chmod -R 775 /var/www/html/bootstrap/cache
 
-# install php and node.js dependencies
-RUN composer install --no-dev --prefer-dist \
-    && npm install \
-    && npm run build
+# Establece permisos para Laravel
+RUN chown -R www-data:www-data /var/www \
+    && chmod -R 755 /var/www/storage
 
-RUN chown -R www-data:www-data /var/www/html/vendor \
-    && chmod -R 775 /var/www/html/vendor
+# Instala las dependencias de Laravel
+RUN composer install --no-dev --optimize-autoloader
 
-# stage 2: production stage
-FROM php:8.3-fpm-alpine
+# Expone el puerto para Nginx
+EXPOSE 9000
 
-# install nginx
-RUN apk add --no-cache \
-    zip \
-    libzip-dev \
-    freetype \
-    libjpeg-turbo \
-    libpng \
-    freetype-dev \
-    libjpeg-turbo-dev \
-    libpng-dev \
-    oniguruma-dev \
-    gettext-dev \
-    freetype-dev \
-    nginx \
-    && docker-php-ext-configure zip \
-    && docker-php-ext-install zip pdo pdo_mysql \
-    && docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ \
-    && docker-php-ext-install -j$(nproc) gd \
-    && docker-php-ext-enable gd \
-    && docker-php-ext-install bcmath \
-    && docker-php-ext-enable bcmath \
-    && docker-php-ext-install exif \
-    && docker-php-ext-enable exif \
-    && docker-php-ext-install gettext \
-    && docker-php-ext-enable gettext \
-    && docker-php-ext-install opcache \
-    && docker-php-ext-enable opcache \
-    && rm -rf /var/cache/apk/*
-
-# copy files from the build stage
-COPY --from=build /var/www/html /var/www/html
-# COPY ./deploy/nginx.conf /etc/nginx/http.d/default.conf
-# COPY ./deploy/php.ini "$PHP_INI_DIR/conf.d/app.ini"
-
-WORKDIR /var/www/html
-
-# add all folders where files are being stored that require persistence. if needed, otherwise remove this line.
-VOLUME ["/var/www/html/storage/app"]
-
-CMD ["sh", "-c", "nginx && php-fpm"]
+# Ejecuta el servidor de PHP-FPM
+CMD ["php-fpm"]
