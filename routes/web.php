@@ -179,7 +179,7 @@ Route::get('/statistics', function(){
                 [
                     "title" => "Nº de investigadores formados.",
                     "progress" => 0,
-                    "target" => 3
+                    "target" => 5
                 ],
 
                 [
@@ -225,14 +225,8 @@ Route::get('/statistics', function(){
                 [
                     "title" => "Nº total de publicaciones realizadas.",
                     "progress" => 0,
-                    "target" => 42
+                    "target" => 43
                 ],
-                [
-                    "title" => "Nº total de publicaciones realizadas.",
-                    "progress" => 0,
-                    "target" => 3
-                ],
-
                 [
                     "title" => "Nº publicaciones realizadas en redes sociales.",
                     "progress" => 0,
@@ -266,7 +260,7 @@ Route::get('/statistics', function(){
                 [
                     "title" => "Nº total de participantes de los terceros países en los eventos realizados.",
                     "progress" => 0,
-                    "target" => 5
+                    "target" => 50
                 ]
             )
         ],
