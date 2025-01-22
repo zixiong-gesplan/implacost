@@ -28,7 +28,8 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 RUN docker-php-ext-install gd
 
 # Instalamos composer
-RUN curl -sS <https://getcomposer.org/installer> | php -- --install-dir=/usr/local/bin --filename=composer
+RUN curl -sS https://getcomposer.org/installer
+RUN php -- --install-dir=/usr/local/bin --filename=composer
 
 # Instalamos dependendencias de composer
 RUN composer install --no-ansi --no-dev --no-interaction --no-progress --optimize-autoloader --no-scripts
