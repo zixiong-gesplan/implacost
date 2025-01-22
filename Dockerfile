@@ -1,5 +1,5 @@
 # Usa la imagen oficial de PHP con FPM
-FROM php:8.1-fpm
+FROM php:8.2-fpm
 
 # Instala extensiones necesarias para Laravel
 RUN apt-get update && apt-get install -y \
