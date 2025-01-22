@@ -32,6 +32,7 @@ RUN composer install
 EXPOSE 9000
 EXPOSE 80
 EXPOSE 8080
+EXPOSE 8000
 
 # Ejecuta el servidor de PHP-FPM
 CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
