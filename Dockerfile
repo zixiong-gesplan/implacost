@@ -26,7 +26,7 @@ RUN chown -R www-data:www-data /var/www \
     && chmod -R 755 /var/www/storage
 
 # Instala las dependencias de Laravel
-RUN composer install --no-dev --optimize-autoloader
+RUN composer install
 
 # Expone el puerto para Nginx
 EXPOSE 9000
