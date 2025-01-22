@@ -30,6 +30,8 @@ RUN composer install
 
 # Expone el puerto para Nginx
 EXPOSE 9000
+EXPOSE 80
+EXPOSE 8080
 
 # Ejecuta el servidor de PHP-FPM
 CMD ["php-fpm"]
