@@ -1,5 +1,5 @@
-# Usa la imagen oficial de PHP con FPM
-FROM php:8.2-fpm
+# Usa la imagen oficial de PHP con CLI
+FROM php:8.2
 
 # Instala extensiones necesarias para Laravel
 RUN apt-get update && apt-get install -y \
@@ -15,24 +15,17 @@ RUN apt-get update && apt-get install -y \
 # Instala Composer
 COPY --from=composer:2.6 /usr/bin/composer /usr/bin/composer
 
-# Configura el directorio de trabajo
+# Define el directorio de trabajo
 WORKDIR /var/www
 
-# Copia los archivos del proyecto Laravel al contenedor
+# Copia los archivos de la aplicación al contenedor
 COPY . .
 
-# Establece permisos para Laravel
-RUN chown -R www-data:www-data /var/www \
-    && chmod -R 755 /var/www/storage
-
-# Instala las dependencias de Laravel
+# Instala dependencias
 RUN composer install
 
-# Expone el puerto para Nginx
-EXPOSE 9000
-EXPOSE 80
-EXPOSE 8080
+# Expone el puerto 8000
 EXPOSE 8000
 
-# Ejecuta el servidor de PHP-FPM
+# Comando por defecto
 CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
