@@ -1,7 +1,11 @@
 FROM php:8.0
-RUN apt-get update -y && apt-get install -y openssl zip unzip git
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-RUN docker-php-ext-install pdo mbstring
+
+RUN apt-get update -y
+RUN apt-get install -y libgmp-dev re2c libmhash-dev libmcrypt-dev file
+RUN ln -s /usr/include/x86_64-linux-gnu/gmp.h /usr/local/include/
+RUN docker-php-ext-configure gmp 
+RUN docker-php-ext-install gmp
+
 WORKDIR /app
 COPY . /app
 RUN composer install
