@@ -34,4 +34,4 @@ EXPOSE 80
 EXPOSE 8080
 
 # Ejecuta el servidor de PHP-FPM
-CMD ["php-fpm"]
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
