@@ -34,6 +34,7 @@
         <div class="slide flex w-[200px] items-center justify-center">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpIv3uEdQpVgTQ9d__nLOCjsXh9j7ctPAGpg&s" class="w-20 " alt="" />
         </div>
+        <!-- https://www.inmg.gov.cv/images/screen-shot-2019-09-22-at-6.00.12-pm.png -->
         <div class="slide flex w-[200px] items-center justify-center">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoy8qnBjytHw8xJfVU6hGsSuDz2qzaXvJmkw&s" class="w-20 " alt="" />
         </div>

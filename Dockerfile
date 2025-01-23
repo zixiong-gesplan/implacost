@@ -19,7 +19,7 @@ COPY --from=composer:2.6 /usr/bin/composer /usr/bin/composer
 WORKDIR /var/www
 
 # Copia los archivos de la aplicación al contenedor
-COPY . .
+COPY . ./app
 
 # Instala dependencias
 RUN composer install
