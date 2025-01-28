@@ -9,7 +9,7 @@
         {{$post['title']}}
     </h1>
 
-    <img src="https://picsum.photos/200" alt="" class="w-1/3 mx-auto my-4">
+    <img src="{{$post['image']}}" alt="" class="w-1/3 mx-auto my-4">
     <div class="w-2/3 mx-auto">
         <p class="mt-8 text-md mb-4">
             {{$post['description']}}
@@ -21,12 +21,12 @@
             <p class="text-blue-400">
                 Publicada el {{$post['date']}}
             </p>
-            <p>
+            <!-- <p>
                 Temas:
                 @foreach( $post['tags'] as $tag )
                     <a href="" class="capitalize after:content-[','] p-">{{$tag}}</a>
                 @endforeach
-            </p>
+            </p> -->
         </div>
     </div>
 
