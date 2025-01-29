@@ -15,7 +15,7 @@
             {{$post['description']}}
         </p>
 
-        <a href="" class="text-lg text-white px-4 py-2 bg-blue-800 rounded my-4">Ver documento</a>
+        <a href="{{$post['link']}}" class="text-lg text-white px-4 py-2 bg-blue-800 rounded my-4">Ver documento</a>
 
         <div class="mt-4">
             <p class="text-blue-400">

@@ -14,7 +14,8 @@ class MockNewsRepository implements NewsRepositoryInterface {
             'short_description' => 'Con motivo de la Primera reunión de partenariado les invitamos a todos los socios votar la imagen corporativa.',
             'date' => '01/11/2025',
             'description' => 'Con motivo de la Primera reunión de partenariado les invitamos a votar la imagen corporativa',
-             'image' => '/images/MARCA_CORPORATIVA_IMPLACOST.png'
+            'image' => '/images/MARCA_CORPORATIVA_IMPLACOST.png',
+            'link' => "https://docs.google.com/forms/d/e/1FAIpQLSeNz11eXpXPQrhCZCX7sp8PL7htIyWEF7azkCXa-bqE4iqXxQ/viewform?usp=header"
         ],
         // [
         //     'id' => 1,
