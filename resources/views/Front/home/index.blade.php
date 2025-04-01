@@ -1,17 +1,23 @@
 @extends('layouts.app')
 
-@section('title', 'Página de inicio')
+@section('title', 'IMPLACOST (1/MAC/2./2.4/0009)')
 
 @section('content')
 
-<section class="w-full my-8 md:mb-16">
-    <h1 class="w-full text-center text-lg md:text-2xl font-extrabold uppercase mb-4">
-        IMPLACOST
-    </h1>
-    <p class="w-full text-center text-md md:text-xl font-semibold text-gray-500 uppercase">
-        EVALUACIÓN DE IMPACTOS AMBIENTALES EN ZONAS COSTERAS Y LITORALES POR EFECTO DEL CAMBIO CLIMÁTICO
-    </p>
+<section class="w-full md:w-10/12 mx-auto my-8 md:mb-16 flex flex-col md:flex-row gap-8">
+    <div class="w-full md:w-1/2">
+        <img src="/images/IMPLACOST_LOGO.png" alt="Logo IMPLACOST" class="w-10/12 mb-2 md:ml-4">
+        <h1 class="text-lg md:text-3xl font-extrabold capitalize mb4 text-blue-800 md:ml-4">(1/MAC/2/2.4/0006)</h1>
+        <h2 class="text-sm md:text-lg font-extrabold text-slate-700 uppercase mx-auto mb-4 md:ml-4 text-balance">
+            EVALUACIÓN DE IMPACTOS AMBIENTALES EN ZONAS COSTERAS Y LITORALES POR EFECTO DEL CAMBIO CLIMÁTICO.
+        </h2>
+        <img src="https://interregmac.org/wp-content/uploads/2023/07/Group-9.jpg" alt="" class="w-full">
+    </div>
+    <div class="w-full md:w-1/2 h-full">
+        <img src="/images/HERO.jpg" alt="" class="w-full rounded-lg aspect-video my-auto shadow-lg">
+    </div>
 </section>
+
 
 <section class="w-full mt-2 gap-4 justify-center grid  grid-cols-1 sm:grid-cols-2">
     @foreach($labelCards as $l )
