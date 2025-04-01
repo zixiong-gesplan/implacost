@@ -62,16 +62,105 @@
     </div>
 </section>
 
-<section class="mt-8">
-    <h1 class="w-full text-center text-2xl font-extrabold capitalize mb-4">
-        socios
+<section class="mt-16 w-10/12 mx-auto">
+    <h1 class="w-full text-center text-4xl font-extrabold capitalize mb-4 text-sky-800 drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]">
+        Seis regiones disintas.... Un mismo objetivo... 
     </h1>
-    <x-PartnerCarousel />
+    <p class="text-lg text-center text-balance">
+        Bajo el marco del proyecto IMPLACOST (1/MAC/2/2.4/0009) se ha construido un grupo de trabajo 
+        multidisciplinar e interregional que actua en todo el espacio de cooperación 
+        del Programa INTERREG VI-D MAC 2021-2027.
+    </p>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-16 gap-y-8 py-8">
+        <x-PartnerCard 
+            src="https://www.gobiernodecanarias.org/gcc/img/logos/logo.svg"
+            alt="Gobierno de Canarias"
+            caption="Socio Principal"
+            href="https://www.gobiernodecanarias.org/transicionecologica/index.html"
+        />
+
+        <x-PartnerCard 
+            src="https://www.lifebeetlesazores.com/wp-content/uploads/2021/11/logo-govDRACC.png"
+            alt="Gobierno de Azores"
+            caption="Administración Pública"
+            href="https://portal.azores.gov.pt/"
+        />
+        <x-PartnerCard 
+            src="/images/LOGO_MADEIRA.png"
+            alt="Gobierno de Madeira"
+            caption="Administración Pública"
+            href="https://www.madeira.gov.pt/"
+        />
+
+        <x-PartnerCard 
+            src="/images/LOGO_GESPLAN.png"
+            alt="Gesplan"
+            caption="Empresa Pública"
+            href="https://www.gesplan.es/"
+        />
+
+        <x-PartnerCard 
+            src="/images/LOGO_ARDITI.png"
+            alt="ARDITI"
+            caption="Empresa Pública"
+            href="https://www.arditi.pt/pt/"
+        />
+        <x-PartnerCard 
+            src="/images/LOGO_UNIVERSIDADE_MADEIRA.png"
+            alt="UNIVERSIDADE MADEIRA"
+            caption="Universidad"
+            href="https://www.uma.pt/"
+        />
+        <x-PartnerCard 
+            src="https://www.ulpgc.es/sites/default/files/ArchivosULPGC/identidad-corporativa/Logo%2025%20Aniversario/logo_ulpgc_version_horizontal_positiva_de_uso_cotidiano_a_2_tintas.png"
+            alt="ULPGC"
+            caption="Universidad"
+            href="https://www.itccanarias.org/web/es/"
+        />
+
+        <x-PartnerCard 
+            src="https://www.rankingcyd.org/assets/img/logoUnis2/1284.png"
+            alt="ULL"
+            caption="Universidad"
+            href="https://www.ull.es/"
+        />
+        <x-PartnerCard 
+            src="/images/LOGO_ITER.png"
+            alt="ULL"
+            caption="Empresa pública"
+            href="https://www.iter.es/"
+        />
+        <x-PartnerCard 
+            src="/images/LOGO_GRAFCAN.png"
+            alt="GRAFCAN"
+            caption="Empresa pública"
+            href="https://www.grafcan.es/"
+        />
+        <x-PartnerCard 
+            src="/images/LOGO_INGT.png"
+            alt="INGT"
+            caption="Tercer Pais"
+            href="https://ingt.gov.cv/ingt/"
+        />
+
+        <x-PartnerCard 
+            src="/images/LOGO_SAO_TOME.png"
+            alt="DGAAG"
+            caption="Tercer Pais"
+            href="https://www.facebook.com/dga.stp/"
+        />
+
+        <x-PartnerCard 
+            src="https://delivery-tracker-staging.s3.amazonaws.com/282bf19c-2857-4959-85a8-ad2242d0a7d9"
+            alt="Ministerio de recursos naturales"
+            caption="Tercer Pais"
+            href="https://mlnr.gov.gh/"
+        />
+    </div>
+
 </section>
 
-
-
-<section class="my-12 flex flex-col gap-16">
+<section class="my-12 flex flex-col gap-16 w-10/12 mx-auto">
     @foreach($objectives as $o)
     <div @class([
         'flex gap-16 flex-col md:flex-row my-4',
