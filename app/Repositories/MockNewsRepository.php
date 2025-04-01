@@ -8,14 +8,25 @@ class MockNewsRepository implements NewsRepositoryInterface {
 
     private $news = array(
         [
-            'id' => 0,
-            'title' => 'Votación de la imagen corporativa oficial',
+            'id' => 1,
+            'title' => 'El Proyecto IMPLACOST participa el workshop de BlueGreen Governance.',
             'tags' => array(''),
-            'short_description' => 'Con motivo de la Primera reunión de partenariado les invitamos a todos los socios votar la imagen corporativa.',
-            'date' => '01/11/2025',
-            'description' => 'Con motivo de la Primera reunión de partenariado les invitamos a votar la imagen corporativa',
-            'image' => '/images/MARCA_CORPORATIVA_IMPLACOST.png',
-            'link' => "https://docs.google.com/forms/d/e/1FAIpQLSeNz11eXpXPQrhCZCX7sp8PL7htIyWEF7azkCXa-bqE4iqXxQ/viewform?usp=header"
+            'short_description' => 'En el marco del proyecto europeo BlueGreen Governance, la ULPGC acogió los días 27 y 28 de marzo el workshop "Exploramos el horizonte. Gobernanza Tierra-Mar en la Macaronesia", en la sede del Parque Científico Tecnológico, situado en el Campus de Tafira.',
+            // 'created_at' => '01/11/2025',
+            'description' => '
+                <p>En el marco del proyecto europeo BlueGreen Governance, la ULPGC acogió los días 27 y 28 de marzo el workshop "Exploramos el horizonte. Gobernanza Tierra-Mar en la Macaronesia", en la sede del Parque Científico Tecnológico, situado en el Campus de Tafira.</p>
+                
+                <p>En relación a este workshop el proyecto IMPLACOST (1/MAC/2/2.4/0009) tuvo la oportunidad de participar y de esta manera exponer los objetivos del proyecto así como las líneas de trabajo que se llevarán a cabo durante el tiempo de ejecución de estos cuatro años.</p>
+                <div>    
+                    <img src="/images/blue-green-workshop-2.jpg"> 
+                    <img src="/images/blue-green-workshop-1.jpg"> 
+                    <img src="/images/blue-green-workshop-3.jpg"> 
+
+                </div>
+
+            ',
+            'image' => 'https://www.ulpgc.es/sites/default/files/styles/imagen_agenda/public/captura_de_pantalla_2025-03-14_124158.png?itok=1FAAnWCa',
+            'document' => null
         ],
         // [
         //     'id' => 1,

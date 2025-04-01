@@ -42,7 +42,6 @@
         <x-NewsCard
             src="{{ $n['image'] }}"
             title="{{ $n['title'] }}"
-            date="{{ $n['date'] }}"
             description="{{$n['short_description']}}"
             id="{{ $n['id'] }}"
             :tags="$n['tags']"
