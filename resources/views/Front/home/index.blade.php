@@ -19,20 +19,57 @@
 </section>
 
 
-<section class="w-full mt-2 gap-4 justify-center grid  grid-cols-1 sm:grid-cols-2">
+<!-- <section class="w-full mt-2 gap-4 justify-center grid  grid-cols-1 sm:grid-cols-2">
     @foreach($labelCards as $l )
         <x-Label
             label="{{ $l['label'] }}"
             description="{{ $l['description'] }}"
         />
     @endforeach
+</section> -->
+<section class="w-10/12 mt-2 gap-4 lg:gap-6 justify-center grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-4 mx-auto">
+    <div class="bg-indigo-50 p-4 rounded-lg shadow-lg">
+        <h1 class="w-full text-2xl font-extrabold capitalize mb-2 text-indigo-700">
+            3.656.120,01 €
+        </h1>
+        <p class="text-slate text-base font-semibold">
+            Presupuesto de ejecución
+        </p>
+    </div>
+    <div class="bg-sky-50 p-4 rounded-lg shadow-lg">
+        <h1 class="w-full text-2xl font-extrabold capitalize mb-2 text-sky-800">
+            48 Meses
+        </h1>
+        <p class="text-stale-900 text-base font-semibold">
+            Duración del proyecto 2025-2028
+        </p>
+    </div>
+    <div class="bg-indigo-50 p-4 rounded-lg shadow-lg">
+        <h1 class="w-full text-2xl font-extrabold capitalize mb-2 text-indigo-700">
+            85%
+        </h1>
+        <p class="text-stale-900 text-base font-semibold">
+            Co-financiación por el Programa de Cooperacion Interreg Madeira-Azores-Canarias (MAC) 2021-2027
+        </p>
+    </div>
+    <div class="bg-sky-50 p-4 rounded-lg shadow-lg">
+        <h1 class="w-full text-xl font-extrabold capitalize mb-2 text-sky-800">
+            Prioridad 2 - MAC Verde   
+        </h1>
+        <p class="text-stale-900 text-base font-semibold">
+            Transición ecológica, apoyo al desarrollo de una economía verde y azul, lucha contra el cambio climático, prevención y gestion de riesgos y emergencias
+        </p>
+    </div>
 </section>
+
 <section class="mt-8">
     <h1 class="w-full text-center text-2xl font-extrabold capitalize mb-4">
         socios
     </h1>
     <x-PartnerCarousel />
 </section>
+
+
 
 <section class="my-12 flex flex-col gap-16">
     @foreach($objectives as $o)
