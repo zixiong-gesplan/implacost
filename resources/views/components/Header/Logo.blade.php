@@ -1,5 +1,5 @@
 <img 
-    src="/images/LOGO_PROVISIONAL_HORIZONTAL.png" 
+    src="/images/LOGO_HORIZONTAL.png" 
     alt="Interreg MAC - PROYECTO IMPLACOST" 
-    class="w-full"
+    class="max-h-28 mx-auto"
 />

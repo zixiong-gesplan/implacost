@@ -4,7 +4,7 @@
         'bg-blue-800 text-white' => $active
     ])
 >
-    <a href="{{ $href }}" class="h-full w-full flex items-center text-xs lg:text-base p-2">
+    <a href="{{ $href }}" class="h-full w-full flex items-center text-xs lg:text-sm p-6 lg:px-4 lg:py-6">
         {{ $slot }}
     </a>
 </li>
