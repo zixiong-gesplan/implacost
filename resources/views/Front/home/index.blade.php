@@ -14,7 +14,7 @@
         <img src="https://interregmac.org/wp-content/uploads/2023/07/Group-9.jpg" alt="" class="w-full">
     </div>
     <div class="w-full md:w-1/2 h-full">
-        <img src="/images/HERO.jpg" alt="" class="w-full rounded-lg aspect-video my-auto shadow-lg">
+        <x-CarouselHero/>
     </div>
 </section>
 
