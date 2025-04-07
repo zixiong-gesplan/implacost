@@ -31,16 +31,16 @@ document.addEventListener('DOMContentLoaded', function() {
     gsap.set(slides[index], { display: 'block' });
 
     function animateSlides() {
-        gsap.to(slides[index], { duration: 1.8, autoAlpha: 0 });
+        gsap.to(slides[index], { duration: 2.4, autoAlpha: 0 });
 
         index = (index + 1) % slides.length;
 
-        gsap.fromTo(slides[index], { autoAlpha: 0 }, { duration: 1.8, autoAlpha: 1, display: 'block', onComplete: () => {
-            setTimeout(animateSlides, 1.8); // Ciclo cada 700ms
+        gsap.fromTo(slides[index], { autoAlpha: 0 }, { duration: 2.4, autoAlpha: 1, display: 'block', onComplete: () => {
+            setTimeout(animateSlides, 2400); // Ciclo cada 700ms
         } });
     }
 
     // Iniciar animación
-    setTimeout(animateSlides, 1.8);
+    setTimeout(animateSlides, 2400);
 });
 </script>
