@@ -29,18 +29,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Iniciar el primer slide visible
     gsap.set(slides[index], { display: 'block' });
+    gsap.to(slides[0], { duration: 0, autoAlpha: 0 });
 
     function animateSlides() {
-        gsap.to(slides[index], { duration: 2.4, autoAlpha: 0 });
+        gsap.to(slides[index], { duration: 1.8, autoAlpha: 0 });
 
         index = (index + 1) % slides.length;
 
-        gsap.fromTo(slides[index], { autoAlpha: 0 }, { duration: 2.4, autoAlpha: 1, display: 'block', onComplete: () => {
-            setTimeout(animateSlides, 2400); // Ciclo cada 700ms
+        gsap.fromTo(slides[index], { autoAlpha: 0 }, { duration: 1.8, autoAlpha: 1, display: 'block', onComplete: () => {
+            setTimeout(animateSlides, 1800); // Ciclo cada 700ms
         } });
     }
 
     // Iniciar animación
-    setTimeout(animateSlides, 2400);
+    setTimeout(animateSlides, 1800);
 });
 </script>
