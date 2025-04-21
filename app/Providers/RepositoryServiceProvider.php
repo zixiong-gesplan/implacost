@@ -5,7 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 
 use App\Interfaces\NewsRepositoryInterface;
-use App\Repositories\MockNewsRepository;
+use App\Repositories\SQLiteNewsRepository;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -15,7 +15,7 @@ class RepositoryServiceProvider extends ServiceProvider
     public function register(): void
     {
         //
-        $this->app->bind(NewsRepositoryInterface::class, MockNewsRepository::class);
+        $this->app->bind(NewsRepositoryInterface::class, SQLiteNewsRepository::class);
     }
 
     /**
