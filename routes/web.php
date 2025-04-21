@@ -4,11 +4,18 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Http\Request;
-
+use App\Models\Visitor;
 use App\Http\Middleware\AuthSession;
 
 
-Route::get('/', function () {
+Route::get('/', function (Request $request) {
+    $ip = $request->ip();
+    $visitor = Visitor::firstOrCreate([
+        'ip_address' => $ip,
+        'user_agent' => $request->server('HTTP_USER_AGENT'),
+        'visited_at' =>  now()->timestamp,
+    ]);
+    $visitor->save();
 
     $labelCards = array(
         [
@@ -111,6 +118,10 @@ Route::get('/', function () {
             'title' => 'Soluciones basadas en la naturaleza implantadas',
             'progress' => 0,
             'target' => 3
+        ],[
+            'title' => 'Visitas a la web del proyecto',
+            'progress' => Visitor::count(),
+            'target' => 5000
         ]
     ); 
     return view('Front.home.index', [

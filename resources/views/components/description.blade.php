@@ -1,4 +1,4 @@
-<div class="bg-white bg-opacity-50 h-full font-semibold p-12 flex flex-col justify-center gap-8 text-blue-900">
+<div class="bg-white bg-opacity-50 h-full font-semibold p-12 flex flex-col justify-center gap-8 text-sky-900">
         <div class="flex flex-col items-center text-center text-md sm:text-lg md:text-3xl">
             <h1>
                 El proyecto IMPLACOST

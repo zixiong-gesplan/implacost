@@ -24,7 +24,7 @@
   }
   
   .post-content h1 {
-    @apply text-3xl font-bold text-gray-900 mt-6 mb-4;
+    @apply text-3xl font-bold text-sky-900 mt-6 mb-4;
   }
   
   .post-content h2 {

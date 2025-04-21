@@ -1,7 +1,7 @@
 <!-- <div class="border w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 place-self-center">
     <div class="flex flex-col items-center justify-evenly h-full p-2 sm:p-4">
         <p class="text-center text-xs md:text-md">{{ $title }}</p>
-        <h1 class="text-md "><span class="md:text-3xl font-semibold text-blue-800">{{ $progress }}</span> de {{ $target }}</h1>
+        <h1 class="text-md "><span class="md:text-3xl font-semibold text-sky-900">{{ $progress }}</span> de {{ $target }}</h1>
     </div>
 </div> -->
 

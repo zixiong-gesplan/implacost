@@ -5,7 +5,7 @@
 @section('content')
 
 <section class="my-4 w-full mx-auto">
-    <h1 class="w-full text-center text-3xl font-semibold text-blue-800 mt-4">
+    <h1 class="w-full text-center text-3xl font-semibold text-sky-900 mt-4">
         Noticias
     </h1>
     <!-- <div class="flex gap-4 w-full justify-center mt-4 flex-col lg:flex-row">
@@ -31,7 +31,7 @@
 
         <form action="" class="flex gap-2">
             <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded focus:ring-blue-800 focus:border-blue-800 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
-            <button type="submit" class="text-blue-800 text-sm md:text-lg rounded px-4 border border-blue-800"> Buscar</button>
+            <button type="submit" class="text-sky-900 text-sm md:text-lg rounded px-4 border border-blue-800"> Buscar</button>
         </form>
     </div> -->
 </section>

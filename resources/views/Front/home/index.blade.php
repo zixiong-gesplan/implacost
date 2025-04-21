@@ -7,7 +7,7 @@
 <section class="w-full md:w-10/12 mx-auto my-8 md:mb-16 flex flex-col md:flex-row gap-8">
     <div class="w-full md:w-1/2">
         <img src="/images/IMPLACOST_LOGO.png" alt="Logo IMPLACOST" class="w-10/12 mb-2 md:ml-4">
-        <h1 class="text-lg md:text-3xl font-extrabold capitalize mb4 text-blue-800 md:ml-4">(1/MAC/2/2.4/0006)</h1>
+        <h1 class="text-lg md:text-3xl font-extrabold capitalize mb4 text-sky-900 md:ml-4">(1/MAC/2/2.4/0006)</h1>
         <h2 class="text-sm md:text-lg font-extrabold text-slate-700 uppercase mx-auto mb-4 md:ml-4 text-balance">
             EVALUACIÓN DE IMPACTOS AMBIENTALES EN ZONAS COSTERAS Y LITORALES POR EFECTO DEL CAMBIO CLIMÁTICO.
         </h2>
@@ -191,7 +191,7 @@
     <div class="w-full">
         <h1 class="w-full text-center text-lg md:text-2xl font-semibold my-4">Indicadores del proyecto</h1>
         <p class="w-10/12 text-center text-md md:text-xl m-auto">
-            En el proyecto <span class="text-blue-800 font-semibold">Implacost</span> nos centramos en la innovación del desarrollo a largo plazo con la vigilancia en el cambio climatico y el impacto del mismo la Macaronesia con los siguentes indicadores.
+            En el proyecto <span class="text-sky-900 font-semibold">Implacost</span> nos centramos en la innovación del desarrollo a largo plazo con la vigilancia en el cambio climatico y el impacto del mismo la Macaronesia con los siguentes indicadores.
         </p>
     </div>
     <div class="grid  grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-8">
@@ -207,7 +207,7 @@
         <div class="border w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 place-self-center">
             <div class="flex flex-col items-center justify-evenly h-full p-2 sm:p-4">
                 <p class="text-center text-xs md:text-md"></p>
-                <h1 class="text-md "><span class="md:text-3xl font-semibold text-blue-800">350</span> de 350</h1>
+                <h1 class="text-md "><span class="md:text-3xl font-semibold text-sky-900">350</span> de 350</h1>
             </div>
         </div>
         <div class="border w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 bg-blue-800 rounded-lg place-self-center">
