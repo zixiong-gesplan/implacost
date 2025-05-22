@@ -64,7 +64,7 @@
 
 <section class="mt-16 w-10/12 mx-auto">
     <h1 class="w-full text-center text-4xl font-extrabold mb-4 text-sky-800 drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]">
-        Seis regiones disintas, un mismo objetivo.
+        Seis regiones distintas, un mismo objetivo.
     </h1>
     <p class="text-lg text-center text-balance">
         Bajo el marco del proyecto IMPLACOST (1/MAC/2/2.4/0009) se ha construido un grupo de trabajo 
