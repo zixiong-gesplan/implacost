@@ -34,7 +34,7 @@ class TrackVisitors
 
         if ($shouldRegister) {
             $visitor = Visitor::firstOrCreate(['ip_address' => $ip]);
-            $visitor->increment('visits');
+            $visitor->save();
             $visitor->touch(); // actualiza updated_at
         }
 
