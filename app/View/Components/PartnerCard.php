@@ -15,7 +15,8 @@ class PartnerCard extends Component
         public string $src,
         public string $alt,
         public string $caption,
-        public string $href
+        public string $href,
+        public string $description = ""
     )
     {
         //
