@@ -160,6 +160,7 @@
             caption="Tercer Pais - Santo Tomé y Príncipe"
             href="https://www.facebook.com/dga.stp/"
             description="Órgano responsable de coordinar políticas ambientales y de acción climática, promoviendo el desarrollo sostenible y la adaptación al cambio climático en Santo Tomé y Príncipe."
+        
         />
 
         <x-PartnerCard 
