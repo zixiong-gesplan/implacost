@@ -1,13 +1,13 @@
-<!-- <div class="border w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 place-self-center">
-    <div class="flex flex-col items-center justify-evenly h-full p-2 sm:p-4">
-        <p class="text-center text-xs md:text-md">{{ $title }}</p>
-        <h1 class="text-md "><span class="md:text-3xl font-semibold text-sky-900">{{ $progress }}</span> de {{ $target }}</h1>
-    </div>
-</div> -->
 
-<div class="border w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 bg-blue-800 rounded-lg place-self-center">
-    <div class="flex flex-col items-center justify-evenly h-full p-2 sm:p-4">
-        <p class="text-center text-white text-xs md:text-md">{{ $title }}</p>
-        <h1 class="text-white text-md"><span class="md:text-3xl font-semibold ">{{ $progress }}</span> de {{ $target }}</h1>
+<div @class([
+        'w-full bg-sky-900 flex gap-1',
+        'flex-row-reverse' => $reverse
+])>
+    <div class="flex w-1/2 h-full ">
+        <img src="{{$src}}" alt="Ejemplo" class="h-full w-full object-cover opacity-50">
+    </div>
+    <div class="w-full md:w-1/2 flex flex-col items-center justify-evenly h-full p-2 sm:p-4">
+        <h1 class="text-white text-md"><span class="text-3xl font-semibold ">{{ $progress }}</h1>
+        <p class="text-center text-white text-md">{{ $title }}</p>
     </div>
 </div>

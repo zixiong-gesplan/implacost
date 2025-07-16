@@ -14,7 +14,9 @@ class BlueCard extends Component
     public function __construct(
         public string $title,
         public int $progress,
-        public int $target
+        public int $target,
+        public string $src,
+        public bool $reverse
     )
     {
         //
