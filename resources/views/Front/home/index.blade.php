@@ -17,7 +17,7 @@
     </div>
 </section>
 
-<section class="w-10/12 mt-2 gap-4 lg:gap-6 justify-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 mx-auto -top-10 sm:-top-20 relative">
+<section class="w-10/12 mt-2 gap-4 lg:gap-6 justify-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mx-auto -top-10 sm:-top-20 relative">
     <div class="bg-indigo-50 p-4 rounded-lg shadow-lg">
         <h1 class="w-full text-2xl font-extrabold capitalize mb-2 text-indigo-700">
             3.656.120,01 €
