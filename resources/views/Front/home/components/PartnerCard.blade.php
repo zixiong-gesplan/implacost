@@ -31,6 +31,6 @@
     data-type="dialog-action"
 >
     <figure class="flex flex-col items-center text-center space-y-2 grayscale hover:grayscale-0">
-        <img src="{{ $src }}" alt="{{ $alt }}" class="h-12">
+        <img src="{{ $src }}" alt="{{ $alt }}" class="h-20">
     </figure>
 </button>

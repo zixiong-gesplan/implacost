@@ -4,9 +4,7 @@
 
 @section('content')
 <section class="w-full h-full bg-bottom relative">
-    <video autoplay muted loop id="myVideo" class="relative w-full h-full">
-        <source src="images/olas.mp4" type="video/mp4">
-    </video>
+    <img src="images/ola.gif" alt="Imagen de portada" srcset="" class="relative w-full h-full"/>
     <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30">
         <div class="w-4/5 sm:w-2/3 md:w-1/2 mx-auto flex flex-col justify-center items-center bg-white p-4 rounded-md bg-opacity-30 drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]">
             <h2 class="text-lg md:text-xl font-extrabold uppercase mx-auto mb-2 md:ml-4 text-balance text-center text-sky-50 drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]">
@@ -116,7 +114,7 @@
         />
 
         <x-PartnerCard 
-            src="https://www.rankingcyd.org/assets/img/logoUnis2/1284.png"
+            src="/images/LOGO_UNIVERSIDAD_LAGUNA.png"
             alt="Universidad de La Laguna"
             caption="Universidad"
             href="https://www.ull.es/"
