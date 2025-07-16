@@ -12,24 +12,10 @@
         <x-styles-imports/>
     </head>
     <body class="font-sans antialiased dark:bg-black dark:text-white/50">
-        <main class="p-2 md:p-8">
+        <main class="">
             <x-header/>
             @yield('content')
-
         </main>
-
-        <!-- <main @class([
-            'flex flex-col row-start-2 items-center sm:items-start bg-no-repeat	w-full',
-            "bg-[url('/images/HERO.png')] bg-cover	h-[720px]" => Request::is('/')
-            ])>
-            <div @class([
-                    "h-full md:ml-10 w-full md:max-w-1/2 md:w-1/2" => Request::is('/'),
-                    "hidden" => !Request::is('/')
-
-                ])>
-                <x-description/>
-            </div>
-        </main> -->
         <x-footer/>
     </body>
 </html>

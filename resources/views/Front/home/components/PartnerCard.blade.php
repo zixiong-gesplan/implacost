@@ -7,19 +7,20 @@
         <figure class="items-center text-center space-y-2 w-full">
             <img src="{{ $src }}" alt="{{ $alt }}" class="h-24">
         </figure>
-        <h2 class="text-blue-700 text-2xl font-bold">
+        <h2 class="text-indigo-700 text-2xl font-bold">
             {{ $alt }}
         </h2>
         <div class="flex flex-col w-full gap-4">
-            <h3 class="text-blue-400 text-lg font-bold">
+            <h3 class="text-sky-900 text-lg font-bold">
                 {{ $caption }}
             </h3>
             <p>
                 {{$description}}
             </p>
             <a href="{{$href}}" target="_blank" rel="noopener noreferrer"
-                class="text-blue-400 underline dark:text-blue-500 hover:no-underline"
-            >Saber más</a>
+                class="text-sky-900 underline dark:text-blue-500 hover:no-underline"
+            >Conoce al socio</a>
+            <div class="h-1"></div>
         </div>
     </div>
 </dialog>

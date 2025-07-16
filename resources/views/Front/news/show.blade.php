@@ -5,10 +5,16 @@
 @section('content')
 
 <section class="my-4 w-full mx-auto post-content">
-    <h1 class="mb-4 text-3xl font-extrabold leading-tight text-sky-900 lg:mb-6 lg:text-4xl dark:text-white text-center">
+    <h1 class="mb-4 text-3xl font-extrabold leading-tight text-sky-900 lg:mb-6 lg:text-4xl dark:text-white text-center"
+        style="view-transition-name:title;"
+    >
         {{ $post['title'] }}
     </h1>
-    <img src="{{$post['image']}}" alt="" class="w-1/2 my-4 border border-gray-500 rounded-lg aspect-video mx-auto">
+    <img 
+        style="view-transition-name:{{$post['image']}}"
+        src="{{$post['image']}}" 
+        alt="" 
+        class="w-1/2 my-4 border border-gray-500 rounded-lg aspect-video mx-auto">
     <div class="w-2/3 mx-auto ">
         <p class="mt-8 text-md mb-4">
             {!! $post['description'] !!}
