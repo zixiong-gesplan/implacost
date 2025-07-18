@@ -3,12 +3,16 @@
         <ul class="space-y-2">
             <li>
                 <a href="/admin/" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
-                    Panel de adminsitración
+                    <p>
+                        Panel de adminsitración
+                    </p>    
                 </a>
             </li>
             <li>
                 <a href="/admin/crear-noticia" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
-                    Crear Noticias
+                    <p>
+                        Crear Noticias
+                    </p>
                 </a>
             </li>
         </ul>

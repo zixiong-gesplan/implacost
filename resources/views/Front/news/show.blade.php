@@ -20,7 +20,11 @@
             {!! $post['description'] !!}
         </p>
         @if( $post['document'] != null)
-            <a target="_blank" href="{{$post['document']}}" class="text-lg text-white px-4 py-2 bg-sky-800 rounded my-4">Ver documento</a>
+            <a target="_blank" href="{{$post['document']}}" class="text-lg text-white px-4 py-2 bg-sky-800 rounded my-4">
+                <p>
+                Ver documento
+                </p>    
+            </a>
         @endif
 
         <div class="mt-4">
@@ -33,7 +37,7 @@
                 <p>
                     Temas:
                     @foreach( $post['tags'] as $tag )
-                        <a href="" class="capitalize after:content-[','] p-">{{$tag}}</a>
+                        <a href="" class="capitalize after:content-[','] p-"><p>{{$tag}}</p></a>
                     @endforeach
                 </p>
             @endif --}}

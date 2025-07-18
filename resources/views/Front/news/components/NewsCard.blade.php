@@ -10,13 +10,17 @@
             </span>
             --}}
             {{-- @foreach( $tags as $tag)
-                <a href="" class="capitalize [&:not(:last-child)]:after:content-[','] p-1 text-xs md:text-sm ">{{$tag}}</a>
+                <a href="" class="capitalize [&:not(:last-child)]:after:content-[','] p-1 text-xs md:text-sm ">
+                    <p>
+                        {{$tag}}
+                    </p>    
+                </a>
             @endforeach --}}
         </div>
         <p class="text-sm md:text-base text-balance md:text-wrap line-clamp-6 pl-4">
             {!! $description !!}
         </p>
-        <a href="/news/{{$id}}" class="mt-2 text-sky-900 p-4 rounded-sm font-bold">Leer más ></a>
+        <a href="/news/{{$id}}" class="mt-2 text-sky-900 p-4 rounded-sm font-bold"><p>Leer más </p></a>
     </aside>
     <div class="w-full md:w-1/2 "> 
         <a href="/news/{{$id}}" class="bg-white rounded-lg overflow-hidden flex flex-col items-center shadow-lg mx-auto size-72">
