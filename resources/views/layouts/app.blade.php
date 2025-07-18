@@ -15,34 +15,76 @@
             <x-header/>
             @yield('content')
         </main>
+        <div class="fixed bottom-4 right-4 z-50">
+            <div class="relative">
+                <div id="languageMenu" class="absolute bottom-12 right-0 w-40 bg-white rounded-xl shadow-lg hidden">
+                    <button onclick="setLanguage('es')" class="block w-full text-left px-4 py-2 hover:bg-gray-100">Español</button>
+                    <button onclick="setLanguage('pt')" class="block w-full text-left px-4 py-2 hover:bg-gray-100">Português</button>
+                    <button onclick="setLanguage('en')" class="block w-full text-left px-4 py-2 hover:bg-gray-100">English</button>
+                    <button onclick="setLanguage('fr')" class="block w-full text-left px-4 py-2 hover:bg-gray-100">Français</button>
+                </div>
+                <button onclick="toggleMenu()" class="bg-blue-600 text-white px-4 py-2 rounded-xl shadow-lg hover:bg-blue-700 focus:outline-none">
+                    🌐 Idioma
+                </button>
+            </div>
+            <div class="h-[15px]"></div>
+        </div>
         <x-footer/>
         <script>
-            (async () => {
+             function toggleMenu() {
+                const menu = document.getElementById('languageMenu');
+                menu.classList.toggle('hidden');
+            }
+
+            async function setLanguage(lang) {
                 if('Translator' in self){
-                    const translator = await Translator.create({
-                        sourceLanguage: 'es',
-                        targetLanguage: 'en',
-                        monitor(monitor) {
-                            monitor.addEventListener("downloadprogress", (e) => {
-                                console.log(`Downloaded ${Math.floor(e.loaded * 100)}%`);
-                            });
-                        },
-                    });
+                    let translator;
+                    if(lang == "es"){
+                        translator = await Translator.create({
+                            sourceLanguage: lang,
+                            targetLanguage: 'es',
+                            monitor(monitor) {
+                                monitor.addEventListener("downloadprogress", (e) => {
+                                    console.log(`Downloaded ${Math.floor(e.loaded * 100)}%`);
+                                });
+                            },
+                        });
+                    }else{
+                        translator = await Translator.create({
+                            sourceLanguage: 'es',
+                            targetLanguage: lang,
+                            monitor(monitor) {
+                                monitor.addEventListener("downloadprogress", (e) => {
+                                    console.log(`Downloaded ${Math.floor(e.loaded * 100)}%`);
+                                });
+                            },
+                        });
+                    }
+
                     const allHTMLTags = document.querySelectorAll("h1,h2,h3,h4,h5,h6,p,li");
                     allHTMLTags.forEach(async (tag) => {
                         let text = tag.innerHTML;
                         try {
-                            tag.innerHTMl ='';
-                            tag.classList.add("animate-pulse","bg-gray-200", "text-gray-200","rounded-md");
                             text = await translator.translate(tag.innerHTML);
-                            tag.classList.remove("animate-pulse","bg-gray-200", "text-gray-200","rounded-md");
                         } catch (error) {
                             console.log(error);
                         }
                         tag.innerHTML = text;
                     });
-                    // allHTMLTags.innerHTML = await translator.translate(allHTMLTags.innerHTML);
                 }
+                document.getElementById('languageMenu').classList.add('hidden');
+            }
+
+            // Ocultar menú si se hace clic fuera
+            document.addEventListener('click', function(event) {
+                const menu = document.getElementById('languageMenu');
+                const isClickInside = event.target.closest('#languageMenu') || event.target.closest('button');
+                if (!isClickInside) {
+                    menu.classList.add('hidden');
+                }
+            });
+            (async () => {
+                
             })();
         </script>
     </body>
