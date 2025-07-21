@@ -15,6 +15,13 @@
   /* set 0% and 100% positions */
 }
 
+#lang-btn,
+#lang-btn>div,
+#lang-btn>div>button {
+  animation: none;
+  animation-timeline: unset;
+}
+
 @keyframes text-appear {
   from {
     opacity: 0;
