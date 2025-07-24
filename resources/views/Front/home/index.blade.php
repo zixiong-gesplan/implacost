@@ -237,7 +237,7 @@
             }        
         });
         const closeBtnDialog = d.querySelector(".btn-close");
-        closeBtnDialog.addEventListener("click", () => {
+        closeBtnDialog?.addEventListener("click", () => {
             d.close();
         });
     });
