@@ -24,7 +24,7 @@
         </main>
         <div class="fixed bottom-4 right-4 z-50" id="lang-btn">
             <div class="relative">
-                <div id="languageMenu" class="absolute bottom-12 right-0 w-40 bg-white rounded-xl shadow-lg hidden opacity-0">
+                <div id="languageMenu" class="absolute bottom-12 right-0 w-40 bg-white rounded-xl shadow-lg hidden">
                     <button onclick="setLanguage('es')" class="block w-full text-left px-4 py-2 hover:bg-gray-100" command="show-loader" commandfor="loader">Español</button>
                     <button onclick="setLanguage('pt')" class="block w-full text-left px-4 py-2 hover:bg-gray-100" command="show-loader" commandfor="loader">Português</button>
                     <!-- <button onclick="setLanguage('en')" class="block w-full text-left px-4 py-2 hover:bg-gray-100" command="show-loader" commandfor="loader">English</button>
