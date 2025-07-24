@@ -5,5 +5,7 @@
         'text-white bg-blue-800' => !Request::is($query)
     ])
     >
-    {{ $label }}
+    <p>
+        {{ $label }}
+    </p>
 </a>

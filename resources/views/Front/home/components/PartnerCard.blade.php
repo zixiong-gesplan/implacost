@@ -19,7 +19,11 @@
             </p>
             <a href="{{$href}}" target="_blank" rel="noopener noreferrer"
                 class="text-sky-900 underline dark:text-blue-500 hover:no-underline"
-            >Conoce al socio</a>
+            >
+                <p>
+                    Conoce al socio
+                </p>
+            </a>
             <div class="h-1"></div>
         </div>
     </div>

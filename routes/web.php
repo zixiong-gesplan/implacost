@@ -151,11 +151,11 @@ Route::middleware(TrackVisitors::class)->group(function () {
             ],
         ];
 
-        return view('Front.home.index', [
+        return response()->view('Front.home.index', [
             'labelCards' => $labelCards,
             'objectives' => $objectives,
             'results' => $results,
-        ]);
+        ])->header('Permissions-Policy', 'translator=(*)');
     });
 
     Route::resource('/news', NewsController::class);
@@ -253,7 +253,7 @@ Route::middleware(TrackVisitors::class)->group(function () {
                 'goals' => [
                     [
                         'title' => 'Nº visitas a página web del proyecto.',
-                        'progress' => 0,
+                        'progress' => Visitor::count(),
                         'target' => 5000,
                     ],
                     [

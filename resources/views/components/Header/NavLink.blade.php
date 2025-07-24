@@ -1,10 +1,12 @@
-<li @class([
+<div @class([
         'h-full flex items-center md:p-4',
-        'text-sky-900' => $slot =='IMPLACOST',
+        'text-sky-900 uppercase' => $slot =='IMPLACOST' || $slot =='Implacost',
         'bg-sky-900 text-white' => $active
     ])
 >
     <a href="{{ $href }}" class="h-full w-full flex items-center text-xs lg:text-sm p-6 lg:px-4 lg:py-6">
-        {{ $slot }}
+        <p>
+            {{ $slot }}
+        </p>
     </a>
-</li>
+</div>

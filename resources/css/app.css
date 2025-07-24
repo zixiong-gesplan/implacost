@@ -15,6 +15,13 @@
   /* set 0% and 100% positions */
 }
 
+#lang-btn,
+#lang-btn>div,
+#lang-btn>div>button {
+  animation: none;
+  animation-timeline: unset;
+}
+
 @keyframes text-appear {
   from {
     opacity: 0;
@@ -33,6 +40,16 @@
   animation-duration: .5s;
 }
 
+h1:first-letter,
+h2:first-letter,
+h3:first-letter,
+h4:first-letter,
+h5:first-letter,
+h6:first-letter,
+p:first-letter,
+li:first-letter {
+  @apply uppercase
+}
 
 .post-content {
   @apply text-gray-700 leading-relaxed;
