@@ -15,7 +15,7 @@
     </div>
 </section>
 
-<section class="w-10/12 mt-2 gap-4 lg:gap-6 justify-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mx-auto -top-10 sm:-top-20 relative">
+<section class="w-10/12 mt-2 gap-4 lg:gap-6 justify-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mx-auto -top-0 sm:-top-20 relative">
     <div class="bg-indigo-50 p-4 rounded-lg shadow-lg">
         <h1 class="w-full text-2xl font-extrabold capitalize mb-2 text-indigo-700">
             3.656.120,01 €
@@ -59,7 +59,7 @@
         multidisciplinar e interregional que actua en todo el espacio de cooperación 
         del Programa INTERREG VI-D MAC 2021-2027.
     </p>
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-16 gap-y-8 py-8">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 sm:gap-x-16 gap-y-8 py-8">
         <x-PartnerCard 
             src="https://www.gobiernodecanarias.org/gcc/img/logos/logo.svg"
             alt="Gobierno de Canarias"

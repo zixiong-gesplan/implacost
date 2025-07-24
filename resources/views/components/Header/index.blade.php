@@ -13,7 +13,7 @@
             />
         </div>
         <div>
-            <ul id="nav-links" class="flex flex-col w-full h-full sm:flex-row justify-between gap-1 items-center">
+            <ul id="nav-links" class="hidden sm:flex flex-col w-full h-full sm:flex-row justify-between gap-1 items-center">
                 <x-NavLink
                     href="/"
                     active="{{ Request::is('/') }}"
