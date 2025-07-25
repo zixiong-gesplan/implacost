@@ -79,7 +79,7 @@
             src="/images/LOGO_MADEIRA.png"
             alt="Gobierno de Madeira"
             caption="Administración Pública"
-            href="https://www.madeira.gov.pt/"
+            href="https://www.madeira.gov.pt/draac/"
             description="Órgano encargado de coordinar y supervisar políticas de lucha contra el cambio climático, promoviendo la sostenibilidad, la resiliencia y la participación social en Madeira."
         />
 
