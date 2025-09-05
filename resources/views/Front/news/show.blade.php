@@ -20,7 +20,7 @@
             {!! $post['description'] !!}
         </p>
         @if( $post['document'] != null)
-            <a target="_blank" href="{{$post['document']}}" class="text-lg text-white px-4 py-2 bg-sky-800 rounded my-4">
+            <a target="_blank" href="{{$post['document']}}" class="text-lg text-white px-4 py-2 rounded my-4">
                 <p>
                 Ver documento
                 </p>    
