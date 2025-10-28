@@ -82,7 +82,7 @@ class NewsController extends Controller
         ]);
 
         // $news->save();
-        event(new NewsCreated($news));
+        // event(new NewsCreated($news));
 
         return back()->with('success', 'La noticia esta creada');
     }
