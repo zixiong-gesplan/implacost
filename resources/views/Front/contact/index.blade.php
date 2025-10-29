@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Noticias de IMPLACOST')
+@section('title', 'IMPLACOST (1/MAC/2./2.4/0009) | Contacto')
 
 @section('content')
 <section class="my-4 w-full mx-auto">
@@ -33,7 +33,7 @@
             @include('/Front/contact/components/card', [
                 "name" => "Ana C. Pereira Rodrigues",
                 "organization" => "Secretaria Regional do Ambiente e Ação Climática",
-                "email" => "ana.cp.rorigues2@azores.gov.pt",
+                "email" => "Ana.CP.Rodrigues2@azores.gov.pt",
             ])
         </section>
 
