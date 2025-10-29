@@ -33,7 +33,7 @@
             @include('/Front/contact/components/card', [
                 "name" => "Ana C. Pereira Rodrigues",
                 "organization" => "Secretaria Regional do Ambiente e Ação Climática",
-                "email" => "ana.cp.rorigues2@azores.gov.pt",
+                "email" => "Ana.CP.Rodrigues2@azores.gov.pt",
             ])
         </section>
 
