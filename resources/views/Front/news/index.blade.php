@@ -1,6 +1,6 @@
 @extends('layouts.app')
  
-@section('title', 'Noticias de IMPLACOST')
+@section('title', 'IMPLACOST (1/MAC/2./2.4/0009) | Noticias')
 
 @section('content')
 

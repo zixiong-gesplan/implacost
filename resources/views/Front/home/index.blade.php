@@ -10,7 +10,7 @@
             <h2 class="text-lg md:text-xl font-extrabold uppercase mx-auto mb-2 md:ml-4 text-balance text-center text-sky-50 drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]">
                 EVALUACIÓN DE IMPACTOS AMBIENTALES EN ZONAS COSTERAS Y LITORALES POR EFECTO DEL CAMBIO CLIMÁTICO
             </h2>
-            <h1 class="text-lg md:text-xl font-extrabold capitalize mb4 md:ml-4 text-sky-50 drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]">(1/MAC/2/2.4/0006)</h1>
+            <h1 class="text-lg md:text-xl font-extrabold capitalize mb4 md:ml-4 text-sky-50 drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]">(1/MAC/2/2.4/0009)</h1>
         </div>
     </div>
 </section>
@@ -52,7 +52,7 @@
 
 <section class="mt-16 w-10/12 mx-auto">
     <h1 class="w-full text-center text-4xl font-extrabold mb-4 text-sky-800 drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]">
-        Seis regiones disintas, un mismo objetivo
+        Seis regiones distintas, un mismo objetivo
     </h1>
     <p class="text-lg text-center text-balance">
         Bajo el marco del proyecto IMPLACOST (1/MAC/2/2.4/0009) se ha construido un grupo de trabajo 
@@ -61,7 +61,7 @@
     </p>
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 sm:gap-x-16 gap-y-8 py-8">
         <x-PartnerCard 
-            src="https://www.gobiernodecanarias.org/gcc/img/logos/logo.svg"
+            src="/images/LOGO_GOBIERNO_CANARIAS.svg"
             alt="Gobierno de Canarias"
             caption="Socio Principal"
             href="https://www.gobiernodecanarias.org/transicionecologica/index.html"
@@ -69,7 +69,7 @@
         />
 
         <x-PartnerCard 
-            src="https://www.lifebeetlesazores.com/wp-content/uploads/2021/11/logo-govDRACC.png"
+            src="/images/LOGO_AZORES.png"
             alt="Gobierno de Azores"
             caption="Administración Pública"
             href="https://portal.azores.gov.pt/"
@@ -79,7 +79,7 @@
             src="/images/LOGO_MADEIRA.png"
             alt="Gobierno de Madeira"
             caption="Administración Pública"
-            href="https://www.madeira.gov.pt/"
+            href="https://www.madeira.gov.pt/draac/"
             description="Órgano encargado de coordinar y supervisar políticas de lucha contra el cambio climático, promoviendo la sostenibilidad, la resiliencia y la participación social en Madeira."
         />
 
@@ -106,7 +106,7 @@
             description="La Universidad de Madeira continúa realizando actividades de investigación científica, promoviendo la difusión y valorización social y económica del conocimiento y la innovación tecnológica."
         />
         <x-PartnerCard 
-            src="https://www.ulpgc.es/sites/default/files/ArchivosULPGC/identidad-corporativa/Logo%2025%20Aniversario/logo_ulpgc_version_horizontal_positiva_de_uso_cotidiano_a_2_tintas.png"
+            src="/images/LOGO_ULPGC.pngº"
             alt="Universidad de Las Palmas de Gran Canaria"
             caption="Universidad"
             href="https://www.ulpgc.es/"
@@ -150,7 +150,7 @@
             description="Órgano responsable de coordinar políticas ambientales y de acción climática, promoviendo el desarrollo sostenible y la adaptación al cambio climático en Santo Tomé y Príncipe."
         />
         <x-PartnerCard 
-            src="https://delivery-tracker-staging.s3.amazonaws.com/282bf19c-2857-4959-85a8-ad2242d0a7d9"
+            src="/images/LOGO_GHANA.jpeg"
             alt="Ministerio de Recursos Naturales"
             caption="Tercer Pais - Ghana"
             href="https://mlnr.gov.gh/"

@@ -2,22 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Interfaces\NewsRepositoryInterface;
-use App\Services\NewsService;
-
-use Illuminate\Http\Request;
-// use Illuminate\Http\UploadFile;
 use App\Models\News;
-
+use App\Services\NewsService;
+// use Illuminate\Http\UploadFile;
+use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
-
     private $news;
 
-    public function __construct(NewsService $news) {
+    public function __construct(NewsService $news)
+    {
         $this->news = $news;
     }
+
     /**
      * Display a listing of the resource.
      */
@@ -32,9 +30,10 @@ class NewsController extends Controller
         }
         $news = $this->news->index($page);
         $count = $this->news->count();
+
         return view('Front.news.index', [
             'news' => $news,
-            'count' => $count/10
+            'count' => $count / 10,
         ]);
     }
 
@@ -61,18 +60,18 @@ class NewsController extends Controller
 
         $thumbnailName = $thumbnail->getClientOriginalName();
         $thumbnailExtension = $thumbnail->getClientOriginalExtension();
-        $thumbnailPath = $thumbnail->storeAs('/public/images',$thumbnailName);
+        $thumbnailPath = $thumbnail->storeAs('/public/images', $thumbnailName);
         $attachment = $request->file('document');
 
         $attachmentPath = null;
-        if($attachment != null){
+        if ($attachment != null) {
             $attachmentName = $attachment->getClientOriginalName();
             $attachmentExtension = $attachment->getClientOriginalExtension();
-            $attachmentPath = $attachment->storeAs('/public/documents',$attachmentName);
-            //TO FIXME:
-            //Se hace esta asignación por que a veces el pdf no se sube
+            $attachmentPath = $attachment->storeAs('/public/documents', $attachmentName);
+            // TO FIXME:
+            // Se hace esta asignación por que a veces el pdf no se sube
         }
-    
+
         $news = News::create([
             'tags' => [],
             'title' => $data['title'],
@@ -82,7 +81,9 @@ class NewsController extends Controller
             'document' => $attachmentPath ? '/storage/'.$attachmentPath : null,
         ]);
 
-        $news->save();
+        // $news->save();
+        // event(new NewsCreated($news));
+
         return back()->with('success', 'La noticia esta creada');
     }
 
