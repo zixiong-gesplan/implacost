@@ -40,12 +40,6 @@
         </div>  
 
         @if( $post['document'] != null)
-<<<<<<< HEAD
-            <a target="_blank" href="{{$post['document']}}" class="text-lg text-white px-4 py-2 rounded my-4">
-                <p>
-                Ver documento
-                </p>    
-=======
             <a target="_blank" href="{{$post['document']}}" class="text-lg text-white px-4 py-2 bg-sky-800 rounded my-4">
                 <div data-container="translator">   
                     <p data-lang="es">
@@ -56,7 +50,6 @@
                     </p> 
                 </div>
 
->>>>>>> release/1.3.0
             </a>
         @endif
 
