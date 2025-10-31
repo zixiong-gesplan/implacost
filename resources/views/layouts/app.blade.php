@@ -51,7 +51,6 @@
                 const menu = document.getElementById('languageMenu');
                 menu.classList.toggle('hidden');
             }
-
             async function setLanguage(lang) {
                 if(userLang == lang){ return }
 
@@ -80,20 +79,19 @@
                 }
             });
 
-            document.addEventListener('DOMContentLoaded', async function() {
-                if(userLang == 'es') {return}
-                const allHTMLTags = document.querySelectorAll('*[data-container="translator"]');
-                
-                for (const tag of allHTMLTags) {
-                    let children = tag.querySelectorAll(`:scope > *`);
-                    for (const child of children) {
-                        child.classList.add('hidden');
-                    }
-                    let chilToDisplay = tag.querySelector(`[data-lang=${userLang}]`);
-                    chilToDisplay.classList.remove('hidden');
+            const allHTMLTags = document.querySelectorAll('*[data-container="translator"]');
+            for (const tag of allHTMLTags) {
+                let children = tag.querySelectorAll(`:scope > *`);
+                for (const child of children) {
+                    child.classList.add('hidden');
                 }
-                document.getElementById('languageMenu').classList.add('hidden');
-            });
+                let chilToDisplay = tag.querySelector(`[data-lang=${userLang}]`);
+                chilToDisplay.classList.remove('hidden');
+            }
+            document.getElementById('languageMenu').classList.add('hidden');
+
+
+
         </script>
     </body>
 </html>
