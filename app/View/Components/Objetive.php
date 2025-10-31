@@ -10,11 +10,12 @@ class Objetive extends Component
 {
     /**
      * Create a new component instance.
+     *
+     * @param  array<string,string>  $description  Mapa de textos por idioma (ej: ['es'=>'Desc...', 'en'=>'Desc...'])
      */
     public function __construct(
-        public string $subtitle
-    )
-    {
+        public array $subtitle
+    ) {
         //
     }
 

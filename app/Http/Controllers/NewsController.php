@@ -74,9 +74,9 @@ class NewsController extends Controller
 
         $news = News::create([
             'tags' => [],
-            'title' => $data['title'],
-            'short_description' => $data['short_description'],
-            'description' => $data['description'],
+            'title_es' => $data['title_es'],
+            'short_description_es' => $data['short_description_es'],
+            'description_es' => $data['description_es'],
             'image' => '/storage/'.$thumbnailPath,
             'document' => $attachmentPath ? '/storage/'.$attachmentPath : null,
         ]);

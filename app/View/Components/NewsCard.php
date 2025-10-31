@@ -13,11 +13,13 @@ class NewsCard extends Component
      */
     public function __construct(
         public string $src,
-        public string $title,
-        public string $description,
+        public string $titleEs,
+        public string $titlePt,
+        public string $descriptionEs,
+        // public string $descriptionPt,
+        public ?string $descriptionPt, // <- ahora acepta null
         public string $id,
-    )
-    {
+    ) {
         //
     }
 

@@ -9,17 +9,21 @@ class News extends Model
     //
     protected $fillable = [
         'id',
-        'title', //Done
-        'description', //Done
-        'short_description', //Done
+        'title_es', // Done
+        'title_pt',
+        'description_es', // Done
+        'description_pt', // Done
+        'short_description_es', // Done
+        'short_description_pt', // Done
         'image', // Done
-        'document', //Done
-        'tags', 
+        'document', // Done
+        'tags',
     ];
 
-    protected function casts(): array{
+    protected function casts(): array
+    {
         return [
-            'tags' => 'array'
+            'tags' => 'array',
         ];
     }
 }
