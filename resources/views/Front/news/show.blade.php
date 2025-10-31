@@ -40,12 +40,12 @@
         </div>  
 
         @if( $post['document'] != null)
-            <a target="_blank" href="{{$post['document']}}" class="text-lg text-white px-4 py-2 bg-sky-800 rounded my-4">
-                <div data-container="translator">   
-                    <p data-lang="es">
+            <a target="_blank" href="{{$post['document']}}">
+                <div data-container="translator">
+                    <p class="text-lg text-white px-4 py-2 bg-sky-800 rounded my-4" data-lang="es">
                         Ver documento
                     </p>
-                    <p data-lang="pt">
+                    <p class="text-lg text-white px-4 py-2 bg-sky-800 rounded my-4 hidden" data-lang="pt">
                         Ver documento
                     </p> 
                 </div>
