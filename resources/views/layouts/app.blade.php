@@ -31,7 +31,15 @@
                     <button onclick="setLanguage('fr')" class="block w-full text-left px-4 py-2 hover:bg-gray-100" command="show-loader" commandfor="loader">Français</button> -->
                 </div>
                 <button onclick="toggleMenu()" class="bg-blue-600 text-white px-4 py-2 rounded-xl shadow-lg hover:bg-blue-700 focus:outline-none">
-                    🌐 Idioma
+                    <div data-container="translator">
+                        <p data-lang="es">
+                            🌐 Idioma
+                        </p>
+                        <p class="hidden" data-lang="pt">
+                            🌐 Idioma
+                        </p>
+                    </div>
+                
                 </button>
             </div>
         </div>
