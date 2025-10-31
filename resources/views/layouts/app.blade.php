@@ -22,7 +22,7 @@
             <x-header/>
             @yield('content')
         </main>
-        <div class="fixed bottom-4 right-4 z-50" id="lang-btn">
+        <div class="fixed bottom-10 right-4 z-50" id="lang-btn">
             <div class="relative">
                 <div id="languageMenu" class="absolute bottom-12 right-0 w-40 bg-white rounded-xl shadow-lg hidden">
                     <button onclick="setLanguage('es')" class="block w-full text-left px-4 py-2 hover:bg-gray-100" command="show-loader" commandfor="loader">Español</button>
@@ -45,31 +45,19 @@
             }
 
             async function setLanguage(lang) {
-                if(!('Translator' in self)){ return }
                 if(userLang == lang){ return }
-                let translator;
-                document.querySelector("#loader").showModal();
-                translator = await Translator.create({
-                    sourceLanguage: userLang,
-                    targetLanguage: lang,
-                    monitor(monitor) {
-                        monitor.addEventListener("downloadprogress", (e) => {
-                            console.log(`Downloaded ${Math.floor(e.loaded * 100)}%`);
-                        });
-                    },
-                });
 
-                const allHTMLTags = document.querySelectorAll("h1,h2,h3,h4,h5,h6,p,li");
+                const allHTMLTags = document.querySelectorAll('*[data-container="translator"]');
+                
                 for (const tag of allHTMLTags) {
-                    let text = tag.innerHTML;
-                    try {
-                        text = await translator.translate(tag.innerHTML);
-                    } catch (error) {
-                        console.log(error);
+                    let children = tag.querySelectorAll(`:scope > *`);
+                    console.log(children)
+                    for (const child of children) {
+                        child.classList.add('hidden');
                     }
-                    tag.innerHTML = text;
+                    let chilToDisplay = tag.querySelector(`[data-lang=${lang}]`);
+                    chilToDisplay.classList.remove('hidden');
                 }
-                document.querySelector("#loader").close();
                 document.getElementById('languageMenu').classList.add('hidden');
                 localStorage.setItem('lang', lang);
                 userLang = lang;
@@ -86,32 +74,17 @@
 
             document.addEventListener('DOMContentLoaded', async function() {
                 if(userLang == 'es') {return}
-                if(!('Translator' in self)){ return }
-                let translator;
-                translator = await Translator.create({
-                    sourceLanguage: 'es',
-                    targetLanguage: userLang,
-                    monitor(monitor) {
-                        monitor.addEventListener("downloadprogress", (e) => {
-                            console.log(`Downloaded ${Math.floor(e.loaded * 100)}%`);
-                        });
-                    },
-                });
-
-                document.querySelector("#loader").showModal();
-
-                const allHTMLTags = document.querySelectorAll("h1,h2,h3,h4,h5,h6,p,li");
-
+                const allHTMLTags = document.querySelectorAll('*[data-container="translator"]');
+                
                 for (const tag of allHTMLTags) {
-                    let text = tag.innerHTML;
-                    try {
-                        text = await translator.translate(tag.innerHTML);
-                    } catch (error) {
-                        console.log(error);
+                    let children = tag.querySelectorAll(`:scope > *`);
+                    for (const child of children) {
+                        child.classList.add('hidden');
                     }
-                    tag.innerHTML = text;
+                    let chilToDisplay = tag.querySelector(`[data-lang=${userLang}]`);
+                    chilToDisplay.classList.remove('hidden');
                 }
-                document.querySelector("#loader").close();
+                document.getElementById('languageMenu').classList.add('hidden');
             });
         </script>
     </body>

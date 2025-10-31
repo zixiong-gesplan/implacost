@@ -11,18 +11,35 @@
             {{ $alt }}
         </h2>
         <div class="flex flex-col w-full gap-4">
-            <h3 class="text-sky-900 text-lg font-bold">
-                {{ $caption }}
-            </h3>
-            <p>
-                {{$description}}
-            </p>
+            <div data-container="translator">
+                <h3 class="text-sky-900 text-lg font-bold" data-lang="es">
+                    {{ $caption['es'] }}
+                </h3>
+                <h3 class="text-sky-900 text-lg font-bold hidden" data-lang="pt">
+                    {{ $caption['pt'] }}
+                </h3>
+            </div>
+            <div data-container="translator">
+                <p data-lang="es">
+                    {{ $description['es'] }}
+                </p>
+                <p data-lang="pt" class="hidden">
+                    {{ $description['pt'] }}
+                </p>
+            </div>
+
             <a href="{{$href}}" target="_blank" rel="noopener noreferrer"
                 class="text-sky-900 underline dark:text-blue-500 hover:no-underline"
             >
-                <p>
-                    Conoce al socio
-                </p>
+                <div data-container="translator">
+                    <p data-lang="es">
+                        Conoce al socio
+                    </p>
+                    <p data-lang="pt" class="hidden">
+                        Conheça o parceiro
+                    </p>
+                </div>
+
             </a>
             <div class="h-1"></div>
         </div>

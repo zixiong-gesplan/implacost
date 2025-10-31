@@ -1,6 +1,12 @@
-<h2 class="w-full text-xl text-green-700 text-center my-4">
-    {{ $slot }}
-</h2>
-<p class="my-4">
-    {{ $subtitle }}
-</p>
+{{ $slot }}
+
+<div data-container="translator">
+
+    <p class="my-4" data-lang="es">
+        {{ $subtitle['es'] }}
+    </p>
+    <p class="my-4 hidden" data-lang="pt">
+        {{ $subtitle['pt'] }}
+    </p>
+
+</div>

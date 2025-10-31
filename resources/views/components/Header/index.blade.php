@@ -25,26 +25,55 @@
                     href="/news"
                     active="{{ Request::is('news/*') || Request::is('news') }}"
                 >
-                    Noticias
+                    <div data-container="translator">
+                        <p data-lang="es">
+                            Noticias
+                        </p>
+                        <p class="hidden" data-lang="pt">
+                            Notícias
+                        </p>
+                    </div>
+                    
                 </x-NavLink>
                 <x-NavLink
                     href="/statistics"
                     active="{{ Request::is('statistics/*') || Request::is('statistics') }}"
                 >
-                    Estadísticas
+                    <div data-container="translator">
+                        <p data-lang="es">
+                            Estadísticas    
+                        </p>
+                        <p class="hidden" data-lang="pt">
+                            Estadísticas
+                        </p>
+                    </div>                
                 </x-NavLink>
                 <x-NavLink
                     href="/results"
                     active="{{ Request::is('results/*') || Request::is('results') }}"
                 >
-                    Resultados
+                    <div data-container="translator">
+                        <p data-lang="es">
+                            Resultados
+                        </p>
+                        <p class="hidden" data-lang="pt">
+                            Resultados
+                        </p>
+                    </div>   
                 </x-NavLink>
 
                 <x-NavLink
                     href="/contact"
                     active="{{ Request::is('contact/*') || Request::is('contact') }}"
                 >
-                    Contacto
+                    <div data-container="translator">
+                        <p data-lang="es">
+                            Contacto
+                        </p>
+                        <p class="hidden" data-lang="pt">
+                            Contacto
+                        </p>
+                    </div>   
                 </x-NavLink>
 
                 <div class="flex flex-row gap-4">

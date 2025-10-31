@@ -10,15 +10,17 @@ class PartnerCard extends Component
 {
     /**
      * Create a new component instance.
+     *
+     * @param  array<string,string>  $caption  Mapa de textos por idioma (ej: ['es'=>'Título', 'en'=>'Title'])
+     * @param  array<string,string>  $description  Mapa de textos por idioma (ej: ['es'=>'Desc...', 'en'=>'Desc...'])
      */
     public function __construct(
         public string $src,
         public string $alt,
-        public string $caption,
+        public array $caption,
         public string $href,
-        public string $description = ""
-    )
-    {
+        public array $description = []
+    ) {
         //
     }
 

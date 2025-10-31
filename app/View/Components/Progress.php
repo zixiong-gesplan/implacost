@@ -10,13 +10,14 @@ class Progress extends Component
 {
     /**
      * Create a new component instance.
+     *
+     * @param  array<string,string>  $title  Mapa de textos por idioma (ej: ['es'=>'Título', 'en'=>'Title'])
      */
     public function __construct(
-        public string $title,
+        public array $title,
         public string $progress,
         public string $target
-    )
-    {
+    ) {
         //
     }
 
