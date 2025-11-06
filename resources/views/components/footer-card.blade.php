@@ -1,7 +1,16 @@
 <div class="">
-    <h1 class="font-semibold mb-4">
-        {{$title}}
-    </h1>
+    <div data-container="translator">
+        <h1 class="font-semibold mb-4" data-lang="es">
+            {{$title['es']}}
+        </h1>
+        <h1 class="font-semibold mb-4" data-lang="pt">
+            {{$title['pt']}}
+        </h1>
+        <h1 class="font-semibold mb-4" data-lang="en">
+            {{$title['en']}}
+        </h1>
+    </div>
+
     <p>
         {{$location}}
     </p>

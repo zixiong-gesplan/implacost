@@ -34,7 +34,7 @@ Route::middleware(TrackVisitors::class)->group(function () {
                 'title' => [
                     'es' => 'Objetivo específico 1 del proyecto',
                     'pt' => 'Objetivo específico 1 do projeto',
-                    'en' => 'Specific Objective 1 of the project',
+                    'en' => 'Project Specific Objective 1',
                 ],
                 'description' => [
                     'es' => 'Evaluar el alcance, intensidad y riesgo asociados a las inundaciones costeras: resultados cuantitativos y cualitativos sobre el impacto social, económico y ecosistémico.',
@@ -72,7 +72,7 @@ Route::middleware(TrackVisitors::class)->group(function () {
                 'title' => [
                     'es' => 'Objetivo específico 2 del proyecto',
                     'pt' => 'Objetivo específico 2 do projeto',
-                    'en' => 'Specific Objective 2 of the project',
+                    'en' => 'Project Specific Objective 2',
                 ],
                 'description' => [
                     'es' => 'Evaluar el alcance, intensidad y riesgo asociados a la erosión costera: resultados cuantitativos y cualitativos sobre el impacto social, económico y ecosistémico.',
@@ -110,7 +110,7 @@ Route::middleware(TrackVisitors::class)->group(function () {
                 'title' => [
                     'es' => 'Objetivo específico 3 del proyecto',
                     'pt' => 'Objetivo específico 3 do projeto',
-                    'en' => 'Specific Objective 3 of the project',
+                    'en' => 'Project Specific Objective 3',
                 ],
                 'description' => [
                     'es' => 'Evaluar el alcance, intensidad y riesgo asociados a la subida de la temperatura media del mar y otros parámetros físico-químicos: resultados cuantitativos y cualitativos sobre el impacto social, económico y ecosistémico.',
@@ -243,7 +243,6 @@ Route::middleware(TrackVisitors::class)->group(function () {
                 'src' => '/images/TARGET_1.png',
             ],
         ];
-        
 
         return response()->view('Front.home.index', [
             'labelCards' => $labelCards,
@@ -292,7 +291,7 @@ Route::middleware(TrackVisitors::class)->group(function () {
                     ],
                 ],
             ],
-        
+
             [
                 'title' => [
                     'es' => 'Indicadores de resultado',
@@ -320,7 +319,7 @@ Route::middleware(TrackVisitors::class)->group(function () {
                     ],
                 ],
             ],
-        
+
             [
                 'title' => [
                     'es' => 'Indicadores específicos del proyecto',
@@ -411,7 +410,7 @@ Route::middleware(TrackVisitors::class)->group(function () {
                     ],
                 ],
             ],
-        
+
             [
                 'title' => [
                     'es' => 'Indicadores de comunicación',
@@ -512,7 +511,6 @@ Route::middleware(TrackVisitors::class)->group(function () {
                 ],
             ],
         ];
-        
 
         return view('Front.stadistics.index', ['indicators' => $indicators]);
     });
