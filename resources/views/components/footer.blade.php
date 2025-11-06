@@ -2,7 +2,7 @@
     <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-16 w-full md:w-10/12 mx-auto">
         @foreach ($partners as $p)
             <x-footer-card 
-                title=" {{ $p['title'] }} "
+                :title="$p['title']"
                 location=" {{ $p['location'] }} "
             />
         @endforeach
