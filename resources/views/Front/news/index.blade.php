@@ -13,6 +13,9 @@
         <h1 class="w-full text-center text-3xl font-semibold text-sky-900 mt-4 hidden" data-lang="pt">
             Notícias
         </h1>
+        <h1 class="w-full text-center text-3xl font-semibold text-sky-900 mt-4 hidden" data-lang="en">
+            Project News
+        </h1>
     </div>
     <!-- <div class="flex gap-4 w-full justify-center mt-4 flex-col lg:flex-row">
         <div class="flex flex-col md:flex-row gap-2 justify-between">
@@ -45,12 +48,19 @@
 <section class="my-4 w-full lg:w-3/4 lg:mx-auto">
 
     @foreach($news as $n)
+        
         <x-NewsCard
             src="{{ $n['image'] }}"
-            :titleEs="$n['title_es']"
-            :titlePt="$n['title_pt']"
-            :descriptionEs="$n['short_description_es']"
-            :descriptionPt="$n['short_description_pt']"
+            :title="[
+                'es' =>$n['title_es'],
+                'pt' =>$n['title_pt'],
+                'en' =>$n['title_en']
+            ]"
+            :description="[
+                'es' => $n['short_description_es'],
+                'pt' => $n['short_description_pt'],
+                'en' => $n['short_description_en']
+            ]"
             id="{{ $n['id'] }}"
         />
     @endforeach

@@ -18,6 +18,9 @@
                 <h3 class="text-sky-900 text-lg font-bold hidden" data-lang="pt">
                     {{ $caption['pt'] }}
                 </h3>
+                <h3 class="text-sky-900 text-lg font-bold hidden" data-lang="en">
+                    {{ $caption['en'] }}
+                </h3>
             </div>
             <div data-container="translator">
                 <p data-lang="es">
@@ -25,6 +28,9 @@
                 </p>
                 <p data-lang="pt" class="hidden">
                     {{ $description['pt'] }}
+                </p>
+                <p data-lang="en" class="hidden">
+                    {{ $description['en'] }}
                 </p>
             </div>
 
@@ -38,8 +44,10 @@
                     <p data-lang="pt" class="hidden">
                         Conheça o parceiro
                     </p>
+                    <p data-lang="en" class="hidden">
+                        Meet the partner
+                    </p>
                 </div>
-
             </a>
             <div class="h-1"></div>
         </div>

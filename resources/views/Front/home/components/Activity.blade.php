@@ -4,8 +4,11 @@
             <h1 class="font-semibold text-sky-900 text-lg" data-lang="es">
                 Actividad {{ $id }}
             </h1>
-            <h1 class="font-semibold text-sky-900 text-lg" data-lang="pt">
-            Atividade {{ $id }}
+            <h1 class="font-semibold text-sky-900 text-lg hidden" data-lang="pt">
+                Atividade {{ $id }}
+            </h1>
+            <h1 class="font-semibold text-sky-900 text-lg hidden" data-lang="en">
+                Activity {{ $id }}
             </h1>
         </div>
         <div data-container="translator">
@@ -15,7 +18,9 @@
             <p class="hidden" data-lang="pt">
                 {{ $description['pt']}}
             </p>
+            <p class="hidden" data-lang="en">
+                {{ $description['en']}}
+            </p>
         </div>
-
     </div>
 </div>

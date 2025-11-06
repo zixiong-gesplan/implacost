@@ -32,6 +32,9 @@
                         <p class="hidden" data-lang="pt">
                             Notícias
                         </p>
+                        <p class="hidden" data-lang="en">
+                            Project News
+                        </p>
                     </div>
                     
                 </x-NavLink>
@@ -46,6 +49,9 @@
                         <p class="hidden" data-lang="pt">
                             Estadísticas
                         </p>
+                        <p class="hidden" data-lang="en">
+                            Statistics
+                        </p>
                     </div>                
                 </x-NavLink>
                 <x-NavLink
@@ -58,6 +64,9 @@
                         </p>
                         <p class="hidden" data-lang="pt">
                             Resultados
+                        </p>
+                        <p class="hidden" data-lang="en">
+                            Results
                         </p>
                     </div>   
                 </x-NavLink>
@@ -72,6 +81,9 @@
                         </p>
                         <p class="hidden" data-lang="pt">
                             Contacto
+                        </p>
+                        <p class="hidden" data-lang="en">
+                            Contact
                         </p>
                     </div>   
                 </x-NavLink>

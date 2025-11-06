@@ -18,6 +18,12 @@
         >
             {{ $post['title_pt'] }}
         </h1>
+        <h1 class="mb-4 text-3xl font-extrabold leading-tight text-sky-900 lg:mb-6 lg:text-4xl dark:text-white text-center hidden"
+            style="view-transition-name:title;"
+            data-lang="en"
+        >
+            {{ $post['title_en'] }}
+        </h1>
     </div>
 
     <img 
@@ -37,6 +43,11 @@
             >
                 {!! $post['description_pt'] !!}
             </div>
+            <div class="mt-8 text-md mb-4 hidden"
+                data-lang="en"
+            >
+                {!! $post['description_en'] !!}
+            </div>
         </div>  
 
         @if( $post['document'] != null)
@@ -47,6 +58,9 @@
                     </p>
                     <p class="text-lg text-white px-4 py-2 bg-sky-800 rounded my-4 hidden" data-lang="pt">
                         Ver documento
+                    </p> 
+                    <p class="text-lg text-white px-4 py-2 bg-sky-800 rounded my-4 hidden" data-lang="en">
+                        Check document
                     </p> 
                 </div>
 
@@ -60,6 +74,9 @@
                 </p>
                 <p class="font-bold text-gray-800 hidden" data-lang="pt">
                     Publicado em {{ date_format($post['created_at'], "d/m/Y")}}
+                </p>
+                <p class="font-bold text-gray-800 hidden" data-lang="en">
+                    Published on {{ date_format($post['created_at'], "d/m/Y")}}
                 </p>
             </div>
 

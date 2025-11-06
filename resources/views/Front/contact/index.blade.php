@@ -6,10 +6,18 @@
 <section class="my-4 w-full mx-auto">
     <div class="w-full md:w-10/12 mx-auto">
         
-        <h1 class="w-full text-center text-3xl font-semibold text-sky-900 mt-4">
-            Contacto
-        </h1>
 
+        <div data-container="translator">
+            <h1 class="w-full text-center text-3xl font-semibold text-sky-900 mt-4" data-lang="es">
+                Contacto
+            </h1>
+            <h1 class="w-full text-center text-3xl font-semibold text-sky-900 mt-4 hidden" data-lang="pt">
+                Contacto
+            </h1>
+            <h1 class="w-full text-center text-3xl font-semibold text-sky-900 mt-4 hidden" data-lang="en">
+                Contact
+            </h1>
+        </div>   
         <h2 class="w-full text-xl text-sky-600 mt-2">
             Canarias
         </h2>

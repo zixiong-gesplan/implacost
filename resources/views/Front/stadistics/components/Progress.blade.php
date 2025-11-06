@@ -2,11 +2,14 @@
     <div data-container="translator">
         <p data-lang="es"> {{ $title['es'] }} </p>
         <p data-lang="pt" class="hidden"> {{ $title['pt'] }} </p>
+        <p data-lang="en" class="hidden"> {{ $title['en'] }} </p>
     </div>
 
     <div data-container="translator">
         <p data-lang="es">Meta del proyecto: {{ $progress }} de {{ $target }}.</p>
         <p data-lang="pt" class="hidden">Meta do projeto: {{ $progress }} de {{ $target }}.</p>
+        <p data-lang="en" class="hidden">Project goal: {{ $progress }} out of {{ $target }}.</p>
+
     </div>
 
     <div class="w-full h-4 mb-4 bg-gray-200 rounded-full dark:bg-gray-700">

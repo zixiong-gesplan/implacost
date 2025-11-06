@@ -11,6 +11,9 @@
         <h1 class="w-full text-center text-3xl font-semibold text-sky-900 mt-4 capitalize hidden" data-lang="pt">
             Estadísticas
         </h1>
+        <h1 class="w-full text-center text-3xl font-semibold text-sky-900 mt-4 capitalize hidden" data-lang="en">
+            Stadistics
+        </h1>
     </div>
     @foreach( $indicators as $i )
         <div data-container="translator">
@@ -19,6 +22,9 @@
             </h2>
             <h2 class="w-full text-xl text-green-700 text-center mb-3 hidden" data-lang="pt">
                 {{ $i['title']['pt'] }}
+            </h2>
+            <h2 class="w-full text-xl text-green-700 text-center mb-3 hidden" data-lang="en">
+                {{ $i['title']['en'] }}
             </h2>
         </div>
 

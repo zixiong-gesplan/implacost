@@ -11,6 +11,7 @@
         <div data-container="translator">
         <p class="text-center text-white text-md" data-lang="es">{{ $title['es'] }}</p>
         <p class="text-center text-white text-md hidden" data-lang="pt">{{ $title['pt'] }}</p>
+        <p class="text-center text-white text-md hidden" data-lang="en">{{ $title['en'] }}</p>
 
         </div>
     </div>
