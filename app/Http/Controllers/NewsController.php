@@ -77,6 +77,12 @@ class NewsController extends Controller
             'title_es' => $data['title_es'],
             'short_description_es' => $data['short_description_es'],
             'description_es' => $data['description_es'],
+            'title_pt' => $data['title_pt'],
+            'short_description_pt' => $data['short_description_pt'],
+            'description_pt' => $data['description_pt'],
+            'title_en' => $data['title_en'],
+            'short_description_en' => $data['short_description_en'],
+            'description_en' => $data['description_en'],
             'image' => '/storage/'.$thumbnailPath,
             'document' => $attachmentPath ? '/storage/'.$attachmentPath : null,
         ]);
