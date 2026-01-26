@@ -71,7 +71,6 @@ class NewsController extends Controller
             // TO FIXME:
             // Se hace esta asignación por que a veces el pdf no se sube
         }
-
         $news = News::create([
             'tags' => [],
             'title_es' => $data['title_es'],
@@ -87,7 +86,7 @@ class NewsController extends Controller
             'document' => $attachmentPath ? '/storage/'.$attachmentPath : null,
         ]);
 
-        // $news->save();
+        $news->save();
         // event(new NewsCreated($news));
 
         return back()->with('success', 'La noticia esta creada');

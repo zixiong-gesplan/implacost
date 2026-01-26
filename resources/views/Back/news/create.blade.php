@@ -4,7 +4,18 @@
 <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
 
 <div class="w-3/4 mx-auto">
-
+    {{-- Bloque de errores con estilos de Tailwind CSS --}}
+    @if ($errors->any())
+        <div class="bg-red-100 border border-red-400 px-4 py-3 rounded relative mb-4" role="alert">
+            <strong class="font-bold">¡Error de validación!</strong>
+            <span class="block sm:inline">Por favor, corrige los siguientes problemas:</span>
+            <ul class="mt-3 list-disc list-inside">
+                @foreach ($errors->all() as $error)
+                    <li class="text-red-700">{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
     <form action="{{route('news.store')}}" method="post" enctype="multipart/form-data" class="" novalidate>
         @csrf
