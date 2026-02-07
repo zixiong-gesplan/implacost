@@ -51,45 +51,58 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'document' => 'nullable|mimes:pdf|max:10240', // 10MB
 
-        $request->validate([
-            'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'title_es' => 'required|string|max:255',
+            'title_pt' => 'required|string|max:255',
+            'title_en' => 'required|string|max:255',
+
+            'short_description_es' => 'required|string|max:1000',
+            'short_description_pt' => 'required|string|max:1000',
+            'short_description_en' => 'required|string|max:1000',
+
+            'description_es' => 'required|string',
+            'description_pt' => 'required|string',
+            'description_en' => 'required|string',
         ]);
-        $data = $request->all();
-        $thumbnail = $request->file('thumbnail');
 
-        $thumbnailName = $thumbnail->getClientOriginalName();
-        $thumbnailExtension = $thumbnail->getClientOriginalExtension();
-        $thumbnailPath = $thumbnail->storeAs('/public/images', $thumbnailName);
-        $attachment = $request->file('document');
+        // (Opcional) Sanitiza HTML de Quill para evitar XSS
+        // $validated['description_es'] = Purifier::clean($validated['description_es']);
+        // $validated['description_pt'] = Purifier::clean($validated['description_pt']);
+        // $validated['description_en'] = Purifier::clean($validated['description_en']);
 
-        $attachmentPath = null;
-        if ($attachment != null) {
-            $attachmentName = $attachment->getClientOriginalName();
-            $attachmentExtension = $attachment->getClientOriginalExtension();
-            $attachmentPath = $attachment->storeAs('/public/documents', $attachmentName);
-            // TO FIXME:
-            // Se hace esta asignación por que a veces el pdf no se sube
+        // Guardar thumbnail con nombre único (no pisas archivos)
+        $thumbPath = $request->file('thumbnail')->store('images', 'public');
+        $thumbUrl = Storage::url($thumbPath); // /storage/images/xxxx.jpg
+
+        // Guardar PDF (si viene)
+        $docUrl = null;
+        if ($request->hasFile('document')) {
+            $docPath = $request->file('document')->store('documents', 'public');
+            $docUrl = Storage::url($docPath); // /storage/documents/xxxx.pdf
         }
+
         $news = News::create([
-            'tags' => [],
-            'title_es' => $data['title_es'],
-            'short_description_es' => $data['short_description_es'],
-            'description_es' => $data['description_es'],
-            'title_pt' => $data['title_pt'],
-            'short_description_pt' => $data['short_description_pt'],
-            'description_pt' => $data['description_pt'],
-            'title_en' => $data['title_en'],
-            'short_description_en' => $data['short_description_en'],
-            'description_en' => $data['description_en'],
-            'image' => '/storage/'.$thumbnailPath,
-            'document' => $attachmentPath ? '/storage/'.$attachmentPath : null,
+            'tags' => [], // asegúrate de que en el modelo sea cast a array/json
+            'title_es' => $validated['title_es'],
+            'short_description_es' => $validated['short_description_es'],
+            'description_es' => $validated['description_es'],
+
+            'title_pt' => $validated['title_pt'],
+            'short_description_pt' => $validated['short_description_pt'],
+            'description_pt' => $validated['description_pt'],
+
+            'title_en' => $validated['title_en'],
+            'short_description_en' => $validated['short_description_en'],
+            'description_en' => $validated['description_en'],
+
+            'image' => $thumbUrl,
+            'document' => $docUrl,
         ]);
 
-        $news->save();
-        // event(new NewsCreated($news));
-
-        return back()->with('success', 'La noticia esta creada');
+        return back()->with('success', 'La noticia está creada');
     }
 
     /**
