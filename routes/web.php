@@ -138,49 +138,6 @@ Route::middleware(TrackVisitors::class)->group(function () {
             ],
         ];
 
-        // $results = array(
-        //     [
-        //         'title' => 'Nº de personas formadas',
-        //         'progress' => 0,
-        //         'target' => 350
-        //     ],[
-        //         'title' => 'Reuniones de seguimiento',
-        //         'progress' => 0,
-        //         'target' => 5
-        //     ],[
-        //         'title' => 'Nº de publicaciones cientificas',
-        //         'progress' => 0,
-        //         'target' => 3
-        //     ],[
-        //         'title' => 'Alumnos de primara y secundaria sensibilizados',
-        //         'progress' => 0,
-        //         'target' => 800
-        //     ],[
-        //         'title' => 'Estudios realizados',
-        //         'progress' => 0,
-        //         'target' => 6
-        //     ],[
-        //         'title' => 'Investigadores Formados',
-        //         'progress' => 0,
-        //         'target' => 6
-        //     ],[
-        //         'title' => 'Nuevos contratos de investigadores',
-        //         'progress' => 0,
-        //         'target' => 6
-        //     ],[
-        //         'title' => 'Nº de indicadores de vulnerabilidad ante el cambio climático desarrollados',
-        //         'progress' => 0,
-        //         'target' => 3
-        //     ],[
-        //         'title' => 'Soluciones basadas en la naturaleza implantadas',
-        //         'progress' => 0,
-        //         'target' => 3
-        //     ],[
-        //         'title' => 'Visitas a la web del proyecto',
-        //         'progress' => Visitor::count(),
-        //         'target' => 5000
-        //     ]
-        // );
         $results = [
             [
                 'title' => [

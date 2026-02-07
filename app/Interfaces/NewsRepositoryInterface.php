@@ -7,6 +7,8 @@ interface NewsRepositoryInterface
     
     public function index(int $page);
 
+    public function all();
+
     public function show($id);
 
     public function store($data);

@@ -20,6 +20,11 @@ class NewsService
         return $news->values();
     }
 
+    public function all()
+    {
+        return $this->news->all();
+    }
+
     public function count()
     {
         return $this->news->count();

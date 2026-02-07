@@ -17,20 +17,21 @@
         </div>
     @endif
 
-    <form action="{{ route('news.store') }}" method="post" enctype="multipart/form-data" novalidate>
+    <form action="{{ route('news.update', $news->id) }}" method="post" enctype="multipart/form-data" novalidate>
         @csrf
+        @method('PUT')
         <div class="grid gap-4">
             <div class="">
                 <label for="title_es" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Titulo (ES)</label>
-                <input required type="text" name="title_es" id="title_es" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Título de la noticia">
+                <input required type="text" name="title_es" id="title_es" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Título de la noticia" value="{{ $news->title_es }}">
             </div>
             <div class="">
                 <label for="title_pt" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Titulo (PT)</label>
-                <input required type="text" name="title_pt" id="title_pt" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Título de la noticia">
+                <input required type="text" name="title_pt" id="title_pt" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Título de la noticia" value="{{ $news->title_pt }}">
             </div>
             <div class="">
                 <label for="title_en" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Titulo (EN)</label>
-                <input required type="text" name="title_en" id="title_en" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Título de la noticia">
+                <input required type="text" name="title_en" id="title_en" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Título de la noticia" value="{{ $news->title_en }}">
             </div>
 
             <div class="flex items-center justify-center w-full">
@@ -43,13 +44,13 @@
                         <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Haz click</span> o arrastra la imagen</p>
                         <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
                     </div>
-                    <input name="thumbnail" id="thumbnail" type="file" class="hidden" accept="image/*" required/>
+                    <input name="thumbnail" id="thumbnail" type="file" class="hidden" accept="image/*"/>
                 </label>
             </div>
 
             <div class="mt-4 w-full">
-                <img id="thumbnailPreview" alt="Preview" class="hidden w-full object-cover rounded-lg border mx-auto">
-                <p id="thumbnailEmpty" class="text-xs text-gray-500 text-center">No hay imagen seleccionada</p>
+                <img id="thumbnailPreview" src="{{ $news->image }}" alt="Preview" class="w-full object-cover rounded-lg border mx-auto">
+                <p id="thumbnailEmpty" class="hidden text-xs text-gray-500 text-center">No hay imagen seleccionada</p>
             </div>
 
             <div class="flex items-center justify-center w-full">
@@ -70,40 +71,40 @@
         <div class="flex-col md:flex w-full gap-4 pb-20">
             <div class="w-full">
                 <label for="description_es" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Descripción (ES)</label>
-                <div id="editor-description-es"></div>
-                <textarea required name="description_es" id="description_es" rows="8" class="hidden p-2 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Texto de la noticia"></textarea>
+                <div id="editor-description-es">{!! $news->description_es !!}</div>
+                <textarea required name="description_es" id="description_es" rows="8" class="hidden p-2 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Texto de la noticia">{{ $news->description_es }}</textarea>
             </div>
 
             <div class="w-full">
                 <label for="description_pt" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Descripción (PT)</label>
-                <div id="editor-description-pt"></div>
-                <textarea required name="description_pt" id="description_pt" rows="8" class="hidden p-2 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Texto de la noticia"></textarea>
+                <div id="editor-description-pt">{!! $news->description_pt !!}</div>
+                <textarea required name="description_pt" id="description_pt" rows="8" class="hidden p-2 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Texto de la noticia">{{ $news->description_pt }}</textarea>
             </div>
 
             <div class="w-full">
                 <label for="description_en" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Descripción (EN)</label>
-                <div id="editor-description-en"></div>
-                <textarea required name="description_en" id="description_en" rows="8" class="hidden p-2 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Texto de la noticia"></textarea>
+                <div id="editor-description-en">{!! $news->description_en !!}</div>
+                <textarea required name="description_en" id="description_en" rows="8" class="hidden p-2 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Texto de la noticia">{{ $news->description_en }}</textarea>
             </div>
 
             <div class="w-full">
                 <label for="short_description_es" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Descripción Corta (ES)</label>
-                <textarea required name="short_description_es" id="short_description_es" rows="4" class="block p-2 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Descripción corta de la noticia"></textarea>
+                <textarea required name="short_description_es" id="short_description_es" rows="4" class="block p-2 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Descripción corta de la noticia">{{ $news->short_description_es }}</textarea>
             </div>
 
             <div class="w-full">
                 <label for="short_description_pt" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Descripción Corta (PT)</label>
-                <textarea required name="short_description_pt" id="short_description_pt" rows="4" class="block p-2 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Descripción corta de la noticia"></textarea>
+                <textarea required name="short_description_pt" id="short_description_pt" rows="4" class="block p-2 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Descripción corta de la noticia">{{ $news->short_description_pt }}</textarea>
             </div>
 
             <div class="w-full">
                 <label for="short_description_en" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Descripción Corta (EN)</label>
-                <textarea required name="short_description_en" id="short_description_en" rows="4" class="block p-2 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Descripción corta de la noticia"></textarea>
+                <textarea required name="short_description_en" id="short_description_en" rows="4" class="block p-2 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Descripción corta de la noticia">{{ $news->short_description_en }}</textarea>
             </div>
         </div>
 
         <button type="submit" class="inline-flex items-center px-5 py-2 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-sky-900 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
-            Crear Noticia
+            Actualizar Noticia
         </button>
     </form>
 </div>
@@ -118,17 +119,17 @@
 
     const updatePreview = (file) => {
         if (!file) {
-            preview.src = '';
-            preview.classList.add('hidden');
-            emptyMsg.classList.remove('hidden');
+            preview.src = '{{ $news->image }}';
+            preview.classList.remove('hidden');
+            emptyMsg.classList.add('hidden');
             return;
         }
         if (!file.type.startsWith('image/')) {
             alert('El archivo seleccionado no es una imagen válida.');
             input.value = '';
-            preview.src = '';
-            preview.classList.add('hidden');
-            emptyMsg.classList.remove('hidden');
+            preview.src = '{{ $news->image }}';
+            preview.classList.remove('hidden');
+            emptyMsg.classList.add('hidden');
             return;
         }
         const reader = new FileReader();

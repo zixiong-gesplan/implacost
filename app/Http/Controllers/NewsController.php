@@ -6,6 +6,7 @@ use App\Models\News;
 use App\Services\NewsService;
 // use Illuminate\Http\UploadFile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
 {
@@ -37,12 +38,17 @@ class NewsController extends Controller
         ]);
     }
 
+    public function adminIndex()
+    {
+        $news = $this->news->all();
+        return view('Back.home.index', ['news' => $news]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
         return view('Back.news.create');
     }
 
@@ -117,24 +123,76 @@ class NewsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    // public function edit(string $id)
-    // {
-    //     //
-    // }
+    public function edit(string $id)
+    {
+        $news = $this->news->show($id);
+        return view('Back.news.edit', ['news' => $news]);
+    }
 
     /**
      * Update the specified resource in storage.
      */
-    // public function update(Request $request, string $id)
-    // {
-    //     //
-    // }
+    public function update(Request $request, string $id)
+    {
+        $validated = $request->validate([
+            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'document' => 'nullable|mimes:pdf|max:10240', // 10MB
+
+            'title_es' => 'required|string|max:255',
+            'title_pt' => 'required|string|max:255',
+            'title_en' => 'required|string|max:255',
+
+            'short_description_es' => 'required|string|max:1000',
+            'short_description_pt' => 'required|string|max:1000',
+            'short_description_en' => 'required|string|max:1000',
+
+            'description_es' => 'required|string',
+            'description_pt' => 'required|string',
+            'description_en' => 'required|string',
+        ]);
+
+        $news = $this->news->show($id);
+
+        if ($request->hasFile('thumbnail')) {
+            // Borrar la imagen anterior si existe
+            if ($news->image) {
+                Storage::disk('public')->delete(str_replace('/storage/', '', $news->image));
+            }
+            $thumbPath = $request->file('thumbnail')->store('images', 'public');
+            $validated['image'] = Storage::url($thumbPath);
+        }
+
+        if ($request->hasFile('document')) {
+            // Borrar el documento anterior si existe
+            if ($news->document) {
+                Storage::disk('public')->delete(str_replace('/storage/', '', $news->document));
+            }
+            $docPath = $request->file('document')->store('documents', 'public');
+            $validated['document'] = Storage::url($docPath);
+        }
+
+        $this->news->update($validated, $id);
+
+        return back()->with('success', 'La noticia ha sido actualizada');
+    }
 
     /**
      * Remove the specified resource from storage.
      */
-    // public function destroy(string $id)
-    // {
-    //     //
-    // }
+    public function destroy(string $id)
+    {
+        $news = $this->news->show($id);
+
+        if ($news->image) {
+            Storage::disk('public')->delete(str_replace('/storage/', '', $news->image));
+        }
+
+        if ($news->document) {
+            Storage::disk('public')->delete(str_replace('/storage/', '', $news->document));
+        }
+
+        $this->news->destroy($id);
+
+        return back()->with('success', 'La noticia ha sido eliminada');
+    }
 }
