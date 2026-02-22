@@ -17,7 +17,7 @@
         </div>
     @endif
 
-    <form action="{{ route('news.update', $news->id) }}" method="post" enctype="multipart/form-data" novalidate>
+    <form action="{{ route('admin.news.update', $news->id) }}" method="post" enctype="multipart/form-data" novalidate>
         @csrf
         @method('PUT')
         <div class="grid gap-4">

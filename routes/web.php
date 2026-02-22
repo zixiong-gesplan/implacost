@@ -208,7 +208,9 @@ Route::middleware(TrackVisitors::class)->group(function () {
         ])->header('Permissions-Policy', 'translator=(*)');
     });
 
-    Route::resource('/news', NewsController::class);
+    Route::resource('/news', NewsController::class)->except([
+        'create', 'edit', 'destroy', 'update', 'store'
+    ]);
 
     Route::get('/statistics', function () {
         $indicators = [
@@ -333,7 +335,7 @@ Route::middleware(TrackVisitors::class)->group(function () {
                         'title' => [
                             'es' => 'Nº de estudios realizados.',
                             'pt' => 'Nº de estudos realizados.',
-                            'en' => 'Number of studies carried out.',
+                            'en' => 'Studies carried out.',
                         ],
                         'progress' => 0,
                         'target' => 6,
@@ -342,7 +344,7 @@ Route::middleware(TrackVisitors::class)->group(function () {
                         'title' => [
                             'es' => 'Nº de nuevos contratos de investigadores.',
                             'pt' => 'Nº de novos contratos de investigadores.',
-                            'en' => 'Number of new researcher contracts.',
+                            'en' => 'New researcher contracts',
                         ],
                         'progress' => 0,
                         'target' => 6,
@@ -484,12 +486,10 @@ Route::middleware(TrackVisitors::class)->group(function () {
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-Route::middleware(AuthSession::class)->group(function () {
-    Route::get('/admin', function () {
-        return view('Back.home.index');
-    });
 
-    Route::get('/admin/crear-noticia', function () {
-        return view('Back.news.create');
-    });
+Route::middleware(AuthSession::class)->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', [NewsController::class, 'adminIndex'])->name('home');
+    Route::resource('/news', NewsController::class)->except([
+        'index', 'show'
+    ]);
 });
