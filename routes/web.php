@@ -208,8 +208,8 @@ Route::middleware(TrackVisitors::class)->group(function () {
         ])->header('Permissions-Policy', 'translator=(*)');
     });
 
-    Route::resource('/news', NewsController::class)->except([
-        'create', 'edit', 'destroy', 'update', 'store'
+    Route::resource('/news', NewsController::class)->only([
+        'index', 'show'
     ]);
 
     Route::get('/statistics', function () {
